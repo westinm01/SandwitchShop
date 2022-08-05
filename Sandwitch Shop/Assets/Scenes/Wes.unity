@@ -619,7 +619,7 @@ MonoBehaviour:
   iconSprites:
   - {fileID: 21300000, guid: dad4855c4f2ad3041851f4410034381f, type: 3}
   - {fileID: 21300000, guid: 51db736a25f5e0a44a8684b818aa2485, type: 3}
-  - {fileID: 21300000, guid: dad4855c4f2ad3041851f4410034381f, type: 3}
-  - {fileID: 21300000, guid: dad4855c4f2ad3041851f4410034381f, type: 3}
-  - {fileID: 21300000, guid: dad4855c4f2ad3041851f4410034381f, type: 3}
+  - {fileID: 21300000, guid: 709a81dfad80f914cacc84ba29095602, type: 3}
+  - {fileID: 21300000, guid: 7246ff32e34f9f74286b182465542f71, type: 3}
+  - {fileID: 21300000, guid: 8367d49d6af6389408815c472d18d532, type: 3}
   timeToGrow: 2

@@ -97,6 +97,7 @@ public class GardenStation : Station
             {
                 index = 0;
             }
+            iconSprite.sprite = iconSprites[index];
         }
         
     }

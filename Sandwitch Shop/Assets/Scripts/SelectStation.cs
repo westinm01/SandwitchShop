@@ -6,10 +6,10 @@ public class SelectStation : MonoBehaviour
 {
     [SerializeField] GameObject allTheStations;
     [SerializeField] GameObject dizzy;
-    bool selected = false;
+    public bool selected = false;
     GameObject selectedStation;
 
-    GameObject getStation(){
+    public GameObject getStation(){
         return selectedStation;
     }
 

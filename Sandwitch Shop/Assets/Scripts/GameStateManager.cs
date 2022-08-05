@@ -23,10 +23,23 @@ public class GameStateManager : MonoBehaviour
     {
         selectorIcon.SetActive(true);
         PauseMenu.SetActive(true);
+        PauseGameSystems();
     }
     public void UnpauseGame()
     {
         selectorIcon.SetActive(false);
         PauseMenu.SetActive(false);
+        UnpauseGameSystems();
+    }
+
+    private void PauseGameSystems()
+    {
+        Time.timeScale = 0f;
+        // may also need to pause player input here later
+    }
+    private void UnpauseGameSystems()
+    {
+        Time.timeScale = 1f;
+        // may also need to unpause player input here later
     }
 }

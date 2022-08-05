@@ -14,8 +14,6 @@ public class PauseGame : MonoBehaviour
         if(!tryingToPause && Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.RightArrow))
         {
             tryingToPause = true;
-            //Debug.Log("Try To Pause");
-            //StartCoroutine(TryToPause());
         }
 
         //adds time between and eventually pauses the game when it hits the time needed to pause
@@ -37,20 +35,4 @@ public class PauseGame : MonoBehaviour
             }
         }
     }
-
-   /* IEnumerator TryToPause()
-    {
-        tryingToPause = true;
-        while (tryingToPause)
-        {
-            if(Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.RightArrow))
-            {
-                tryingToPause = false;
-                break;
-            }
-        }
-        yield return new WaitForSeconds(timeToPause);
-        tryingToPause = false;
-        FindObjectOfType<GameStateManager>().PauseGame();
-    } */
 }

@@ -14,13 +14,13 @@ public class RotateStations : MonoBehaviour
         if(clockwise == 1){
             for(int i=0; i<5; ++i){
                 counter.transform.Rotate(new Vector3(0,0,7));
-                yield return new WaitForSeconds(0.02f);
+                yield return new WaitForSeconds(0.01f);
             }
             counter.transform.Rotate(new Vector3(0,0,-5));
         }else{
             for(int i=0; i<5; ++i){
                 counter.transform.Rotate(new Vector3(0,0,-7));
-                yield return new WaitForSeconds(0.02f);
+                yield return new WaitForSeconds(0.01f);
             }
             counter.transform.Rotate(new Vector3(0,0,5));
         }

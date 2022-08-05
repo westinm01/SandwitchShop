@@ -9,6 +9,10 @@ public class SelectStation : MonoBehaviour
     bool selected = false;
     GameObject selectedStation;
 
+    GameObject getStation(){
+        return selectedStation;
+    }
+
     IEnumerator actuallySelectStation(){
         yield return new WaitUntil(() => selected);
         if(selectedStation != null){

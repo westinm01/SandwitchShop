@@ -9,6 +9,10 @@ public class SelectStation : MonoBehaviour
     bool selected = false;
     GameObject selectedStation;
 
+    GameObject getStation(){
+        return selectedStation;
+    }
+
     IEnumerator actuallySelectStation(){
         yield return new WaitUntil(() => selected);
         if(selectedStation != null){
@@ -22,9 +26,12 @@ public class SelectStation : MonoBehaviour
                 }
             }
             Destroy(allTheStations.GetComponent<RotateStations>());
+            if(selectedStation == null){
+                allTheStations.AddComponent<RotateStations>();
+            }
         }
         Debug.Log(selectedStation);
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.5f);
         selected = false;
         StartCoroutine(actuallySelectStation());
     }
@@ -32,6 +39,8 @@ public class SelectStation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        dizzy = GameObject.FindWithTag("Player");
+        allTheStations = GameObject.FindWithTag("Table");
         StartCoroutine(actuallySelectStation());
     }
 

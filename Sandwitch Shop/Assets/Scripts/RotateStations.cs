@@ -15,12 +15,13 @@ public class RotateStations : MonoBehaviour
         }else{
             counter.transform.Rotate(new Vector3(0,0,1)*-30);
         }
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.5f);
         clockwise = 0;
         StartCoroutine(coolRotate());
     }
 
     void Start(){
+        counter = GameObject.FindWithTag("Table");
         StartCoroutine(coolRotate());
     }
 

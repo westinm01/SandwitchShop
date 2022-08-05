@@ -13,6 +13,7 @@ public class SelectStation : MonoBehaviour
         yield return new WaitUntil(() => selected);
         if(selectedStation != null){
             selectedStation = null;
+            allTheStations.AddComponent<RotateStations>();
         }else{
             for(int i=0; i<allTheStations.transform.childCount; ++i){
                 Transform station = allTheStations.transform.GetChild(i);
@@ -20,9 +21,10 @@ public class SelectStation : MonoBehaviour
                     selectedStation = station.gameObject;
                 }
             }
+            Destroy(allTheStations.GetComponent<RotateStations>());
         }
         Debug.Log(selectedStation);
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.5f);
         selected = false;
         StartCoroutine(actuallySelectStation());
     }

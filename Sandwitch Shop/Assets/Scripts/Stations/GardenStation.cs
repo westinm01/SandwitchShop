@@ -30,6 +30,7 @@ public class GardenStation : Station
         veggies.Add(Ingredients.veggy.Onion);//3
         veggies.Add(Ingredients.veggy.Mushroom);//4
 
+        thisSpriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
         iconSprite = this.gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
         iconSprite.sprite = iconSprites[0];
 
@@ -46,9 +47,10 @@ public class GardenStation : Station
         base.Update();
         if(isSelected)
         {
+            Debug.Log("gets selected");
             if(Input.GetKey("down") && isGrowing)
             {
-                    
+                Debug.Log("it do be growing");
                 currentTime += Time.deltaTime;
                 if(currentStage == 0 && currentTime >= timeToGrow / 3.0f)
                 {

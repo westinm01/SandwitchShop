@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Station : MonoBehaviour
+public abstract class Station : MonoBehaviour
 {
 
     public bool isSelected;
@@ -16,13 +16,13 @@ public class Station : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         isSelected = false;
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CuttingBoardStation : Station
 {
-    public Player player;
+    //public Player player;
     protected override void Start()
     {
         base.Start();

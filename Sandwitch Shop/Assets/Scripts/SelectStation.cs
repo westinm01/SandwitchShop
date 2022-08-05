@@ -17,14 +17,14 @@ public class SelectStation : MonoBehaviour
         }else{
             for(int i=0; i<allTheStations.transform.childCount; ++i){
                 Transform station = allTheStations.transform.GetChild(i);
-                if(Mathf.RoundToInt(station.position.x) == Mathf.RoundToInt(dizzy.transform.position.x) && Mathf.RoundToInt(station.position.y) >= Mathf.RoundToInt(dizzy.transform.position.y)){
+                if(Mathf.RoundToInt(station.position.x) == Mathf.RoundToInt(dizzy.transform.position.x) && Mathf.RoundToInt(station.position.y) <= Mathf.RoundToInt(dizzy.transform.position.y)){
                     selectedStation = station.gameObject;
                 }
             }
             Destroy(allTheStations.GetComponent<RotateStations>());
         }
         Debug.Log(selectedStation);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
         selected = false;
         StartCoroutine(actuallySelectStation());
     }

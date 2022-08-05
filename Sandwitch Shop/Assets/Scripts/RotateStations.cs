@@ -10,12 +10,22 @@ public class RotateStations : MonoBehaviour
 
     IEnumerator coolRotate(){
         yield return new WaitUntil(() => clockwise!=0);
+        Destroy(counter.GetComponent<SelectStation>());
         if(clockwise == 1){
-            counter.transform.Rotate(new Vector3(0,0,1)*30);
+            for(int i=0; i<5; ++i){
+                counter.transform.Rotate(new Vector3(0,0,7));
+                yield return new WaitForSeconds(0.02f);
+            }
+            counter.transform.Rotate(new Vector3(0,0,-5));
         }else{
-            counter.transform.Rotate(new Vector3(0,0,1)*-30);
+            for(int i=0; i<5; ++i){
+                counter.transform.Rotate(new Vector3(0,0,-7));
+                yield return new WaitForSeconds(0.02f);
+            }
+            counter.transform.Rotate(new Vector3(0,0,5));
         }
-        yield return new WaitForSeconds(0.25f);
+        counter.AddComponent<SelectStation>();
+        yield return new WaitForSeconds(0.3f);
         clockwise = 0;
         StartCoroutine(coolRotate());
     }

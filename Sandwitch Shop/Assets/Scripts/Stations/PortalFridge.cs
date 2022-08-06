@@ -24,6 +24,17 @@ public class PortalFridge : Station
     protected override void Update()
     {
         base.Update();
+        if(isSelected && Hand.getItem() == null)
+        {
+            player.GetComponent<Animator>().SetInteger("StationNumber", 7);
+            player.gameObject.transform.position = new Vector3(player.gameObject.transform.position.x, -2f, -4f);
+            
+        }
+        else if(Hand.getItem())
+        {
+            player.GetComponent<Animator>().SetInteger("StationNumber", 0);
+            player.gameObject.transform.position = new Vector3(player.gameObject.transform.position.x, -1.8f, 1f);
+        }
         //play animation here?
     }
 

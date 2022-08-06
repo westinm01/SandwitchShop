@@ -70,18 +70,25 @@ public class GardenStation : Station
                     thisSpriteRenderer.sprite = finalGardenSprites[index];
                     
                 }
+                else if (currentStage == 2 && currentTime >= timeToGrow)
+                {
+                    currentStage++;
+                    isGrowing = false;
+                    
+                }
             }
-            if(currentStage == 2 && Input.GetKeyDown(KeyCode.DownArrow))
+            if(currentStage == 3 && Input.GetKeyUp(KeyCode.DownArrow))
             {
                 currentStage = 0;
-                thisSpriteRenderer.sprite = defaultSprite;
-
+                
                 if (!player.hasFood)
                     {
+                        thisSpriteRenderer.sprite = defaultSprite;
                         GameObject newFood = new GameObject();
                         newFood.AddComponent<Veggy>();
                         newFood.GetComponent<Veggy>().veggy = veggies[index];
                         player.hasFood = true;
+                        //now we need to put this in the 
                     }
             }
         }

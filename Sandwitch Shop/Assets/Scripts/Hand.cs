@@ -12,4 +12,8 @@ public static class Hand
         Debug.Log(whatItem);
         GameObject.FindWithTag("Hand").GetComponent<SpriteRenderer>().sprite = whatHold;
     }
+
+    public static void dropItem(){
+        whatItem = null;
+    }
 }

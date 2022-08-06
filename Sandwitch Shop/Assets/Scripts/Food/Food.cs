@@ -5,16 +5,18 @@ using UnityEngine;
 public abstract class Food : MonoBehaviour
 {
     public bool isCuttable;
+    public bool isBakable;
+    public bool isBaked;
     public bool isReadyForAssembly;
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

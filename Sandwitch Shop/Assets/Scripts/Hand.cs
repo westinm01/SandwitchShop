@@ -23,4 +23,8 @@ public static class Hand
         tmp.a = 0f;
         GameObject.FindWithTag("Hand").GetComponent<SpriteRenderer>().color = tmp;
     }
+
+    public static Food getItem(){
+        return whatItem;
+    }
 }

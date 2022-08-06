@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Food : MonoBehaviour
 {
     public bool isCuttable;
+    public bool isReadyForAssembly;
     // Start is called before the first frame update
     protected virtual void Start()
     {

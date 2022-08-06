@@ -77,13 +77,14 @@ public class ToastStation : Station
         }
         else
         {
-            if (!player.hasFood)
+            if (Hand.getItem() == null)
                     {
                         thisSpriteRenderer.sprite = defaultSprite;
                         currentTime = 0;
                         GameObject newFood = new GameObject();
                         newFood.AddComponent<Bread>();
                         newFood.GetComponent<Bread>().bread = breads[index];
+                        Hand.setItem(newFood.GetComponent<Bread>(), iconSprites[index]);
                         player.hasFood = true;
                         breadReady = false;
                     }

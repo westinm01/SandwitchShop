@@ -79,16 +79,17 @@ public class GardenStation : Station
             }
             if(currentStage == 3 && Input.GetKeyUp(KeyCode.DownArrow))
             {
-                currentStage = 0;
                 
                 if (!player.hasFood)
                     {
+                        currentStage = 0;
                         thisSpriteRenderer.sprite = defaultSprite;
+                        currentTime = 0;
                         GameObject newFood = new GameObject();
                         newFood.AddComponent<Veggy>();
                         newFood.GetComponent<Veggy>().veggy = veggies[index];
                         player.hasFood = true;
-                        //now we need to put this in the 
+
                     }
             }
         }

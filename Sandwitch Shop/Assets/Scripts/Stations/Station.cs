@@ -8,6 +8,7 @@ public abstract class Station : MonoBehaviour
 {
 
     public bool isSelected;
+    public SelectStation ss;
     public Player player;
 
     protected Action leftFunction;
@@ -25,13 +26,14 @@ public abstract class Station : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
+        
         if(isSelected)
         {
             if(Input.GetKeyDown(KeyCode.LeftArrow) && Input.GetKeyDown(KeyCode.RightArrow) && Input.GetKeyDown(KeyCode.DownArrow))
             {
                 isSelected = false;
             }
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            else if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 leftFunction();
             }

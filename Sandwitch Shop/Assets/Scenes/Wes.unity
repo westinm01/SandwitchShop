@@ -134,9 +134,10 @@ GameObject:
   - component: {fileID: 652699792}
   - component: {fileID: 652699791}
   - component: {fileID: 652699790}
+  - component: {fileID: 652699793}
   m_Layer: 0
   m_Name: Dizzy
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -228,6 +229,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &652699793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652699789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 981400daeb8e5d74dad27b405b16df53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasFood: 0
+  currentFood: {fileID: 0}
 --- !u!1 &1854057480
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,6 +335,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 657219215, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
+      propertyPath: dizzy
+      value: 
+      objectReference: {fileID: 652699789}
     - target: {fileID: 3075051621449663112, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -368,6 +387,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Table
       objectReference: {fileID: 0}
+    - target: {fileID: 3075051621921893689, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 652699793}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}

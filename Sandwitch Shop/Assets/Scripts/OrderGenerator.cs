@@ -2,10 +2,29 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OrderGenerator : MonoBehaviour
 {
+    [SerializeField] int ordersInRound = 7;
+    [SerializeField] float timePerOrder = 20f;
+    [SerializeField] float bossOrderTime = 30f;
+    [SerializeField] Ingredients.bread bossBread;
+    [SerializeField] Ingredients.meat bossMeat;
+    [SerializeField] Ingredients.veggy bossVeggy;
+    [SerializeField] Ingredients.dressing bossDressing;
+
+    [SerializeField] Image breadImage;
+    [SerializeField] Image meatImage;
+    [SerializeField] Image veggyImage;
+    [SerializeField] Image dressingImage;
+
     System.Random random = new System.Random();
+
+    private void Awake()
+    {
+        GenerateOrder();
+    }
 
     private GeneratedOrder GenerateOrder()
     {
@@ -14,6 +33,7 @@ public class OrderGenerator : MonoBehaviour
         Ingredients.veggy randomVeggy = GetRandomVeggy();
         Ingredients.dressing randomDressing = GetRandomDressing();
 
+        // Create the order with the 4 random items
         GeneratedOrder order = new GeneratedOrder
         {
             bread = randomBread,
@@ -21,6 +41,11 @@ public class OrderGenerator : MonoBehaviour
             veggy = randomVeggy,
             dressing = randomDressing
         };
+        // Update UI to show the 4 random items
+        breadImage.sprite = FindObjectOfType<Bread>().GetSprite(randomBread);
+        meatImage.sprite = FindObjectOfType<Meat>().GetSprite(randomMeat);
+        veggyImage.sprite = FindObjectOfType<Veggy>().GetSprite(randomVeggy);
+        dressingImage.sprite = FindObjectOfType<Dressing>().GetSprite(randomDressing);
 
         return order;
     }

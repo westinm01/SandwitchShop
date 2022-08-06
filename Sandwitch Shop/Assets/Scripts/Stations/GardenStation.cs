@@ -68,7 +68,6 @@ public class GardenStation : Station
                 {
                     currentStage++;
                     thisSpriteRenderer.sprite = finalGardenSprites[index];
-                    
                 }
                 else if (currentStage == 2 && currentTime >= timeToGrow)
                 {
@@ -88,6 +87,7 @@ public class GardenStation : Station
                         GameObject newFood = new GameObject();
                         newFood.AddComponent<Veggy>();
                         newFood.GetComponent<Veggy>().veggy = veggies[index];
+                        Hand.setItem(newFood.GetComponent<Veggy>(), iconSprites[index]);
                         player.hasFood = true;
 
                     }

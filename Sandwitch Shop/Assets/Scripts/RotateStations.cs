@@ -12,17 +12,17 @@ public class RotateStations : MonoBehaviour
         yield return new WaitUntil(() => clockwise!=0);
         Destroy(counter.GetComponent<SelectStation>());
         if(clockwise == 1){
-            for(int i=0; i<5; ++i){
+            for(int i=0; i<7; ++i){
                 counter.transform.Rotate(new Vector3(0,0,7));
                 yield return new WaitForSeconds(0.01f);
             }
-            counter.transform.Rotate(new Vector3(0,0,-5));
+            counter.transform.Rotate(new Vector3(0,0,-4));
         }else{
-            for(int i=0; i<5; ++i){
+            for(int i=0; i<7; ++i){
                 counter.transform.Rotate(new Vector3(0,0,-7));
                 yield return new WaitForSeconds(0.01f);
             }
-            counter.transform.Rotate(new Vector3(0,0,5));
+            counter.transform.Rotate(new Vector3(0,0,4));
         }
         counter.AddComponent<SelectStation>();
         yield return new WaitForSeconds(0.3f);

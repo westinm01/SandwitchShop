@@ -58,7 +58,6 @@ public class GardenStation : Station
                     if(index == 4)
                     {
                         thisSpriteRenderer.sprite = sproutGardenSprites[1];
-                        Hand.setItem(this.gameObject.transform.GetChild(0).gameObject.GetComponent<Ingredients>());
                     }
                     else
                     {
@@ -69,7 +68,6 @@ public class GardenStation : Station
                 {
                     currentStage++;
                     thisSpriteRenderer.sprite = finalGardenSprites[index];
-                    
                 }
             }
             if(currentStage == 2 && Input.GetKeyDown(KeyCode.DownArrow))
@@ -82,6 +80,7 @@ public class GardenStation : Station
                         GameObject newFood = new GameObject();
                         newFood.AddComponent<Veggy>();
                         newFood.GetComponent<Veggy>().veggy = veggies[index];
+                        Hand.setItem(newFood.GetComponent<Veggy>(), iconSprites[index]);
                         player.hasFood = true;
                     }
             }

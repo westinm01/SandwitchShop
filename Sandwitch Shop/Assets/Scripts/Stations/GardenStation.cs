@@ -58,6 +58,7 @@ public class GardenStation : Station
                     if(index == 4)
                     {
                         thisSpriteRenderer.sprite = sproutGardenSprites[1];
+                        Hand.setItem(this.gameObject.transform.GetChild(0).gameObject.GetComponent<Ingredients>());
                     }
                     else
                     {

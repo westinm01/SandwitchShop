@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Timer : MonoBehaviour
+public class GameTimer : MonoBehaviour
 {
     [SerializeField] TMP_Text timerText;
     [SerializeField] float time = 180f;

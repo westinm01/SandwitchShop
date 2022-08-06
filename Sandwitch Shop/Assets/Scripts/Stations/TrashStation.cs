@@ -20,6 +20,7 @@ public class TrashStation : Station
 
                 }else{
                     Hand.dropItem();
+                    player.hasFood = false;
                 }
             }
         }

@@ -8,7 +8,7 @@ public abstract class Station : MonoBehaviour
 {
 
     public bool isSelected;
-    public SelectStation ss;
+    //public SelectStation ss;
     public Player player;
 
     protected Action leftFunction;

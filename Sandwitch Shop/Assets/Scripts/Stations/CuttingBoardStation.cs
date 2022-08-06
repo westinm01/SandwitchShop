@@ -33,13 +33,14 @@ public class CuttingBoardStation : Station
             {
                 //set a flag indicating that the veggy has been cut.
                 thisSpriteRenderer.sprite = defaultSprite;
+                doneCutting = false;
             }
         }
     }
     
     void Cut(){
         
-        if(player.hasFood && player.currentFood.isCuttable && !doneCutting){
+        if(Hand.getItem().isCuttable && !Hand.getItem().isReadyForAssembly && !doneCutting){
             thisSpriteRenderer.sprite = cuttingSprite;
             cutsMade++;
             isCutting = true;
@@ -49,6 +50,18 @@ public class CuttingBoardStation : Station
                 doneCutting = true;
                 isCutting = false;
                 cutsMade = 0;
+                Hand.getItem().isReadyForAssembly = true;
+            }
+            
+        }
+        else{
+            
+            if(!Hand.getItem().isCuttable)
+            {
+                Debug.Log("Not holding veggy");
+            }
+            else{
+                Debug.Log("Cannot Cut");
             }
             
         }

@@ -11,9 +11,16 @@ public static class Hand
         whatItem = currItem;
         Debug.Log(whatItem);
         GameObject.FindWithTag("Hand").GetComponent<SpriteRenderer>().sprite = whatHold;
+        Color tmp = GameObject.FindWithTag("Hand").GetComponent<SpriteRenderer>().color;
+        tmp.a = 1f;
+        GameObject.FindWithTag("Hand").GetComponent<SpriteRenderer>().color = tmp;
     }
 
     public static void dropItem(){
         whatItem = null;
+        GameObject.FindWithTag("Hand").GetComponent<SpriteRenderer>().sprite = null;
+        Color tmp = GameObject.FindWithTag("Hand").GetComponent<SpriteRenderer>().color;
+        tmp.a = 0f;
+        GameObject.FindWithTag("Hand").GetComponent<SpriteRenderer>().color = tmp;
     }
 }

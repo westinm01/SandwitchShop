@@ -76,7 +76,7 @@ public class GardenStation : Station
                     
                 }
             }
-            if(currentStage == 3 && Input.GetKeyUp(KeyCode.DownArrow))
+            if(currentStage == 3 && Input.GetKeyUp(KeyCode.DownArrow) && Hand.getItem() == null)
             {
                 
                 if (!player.hasFood)

@@ -10,8 +10,9 @@ public class Veggy : Food
     // Start is called before the first frame update
     protected override void Start()
     {
+        base.Start();
         isCuttable = true;
-        isCut = false;
+        //isCut = false;
     }
 
     public Sprite GetSprite(Ingredients.veggy veggyType)

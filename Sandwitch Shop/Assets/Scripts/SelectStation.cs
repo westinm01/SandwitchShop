@@ -6,16 +6,17 @@ public class SelectStation : MonoBehaviour
 {
     [SerializeField] GameObject allTheStations;
     [SerializeField] GameObject dizzy;
-    bool selected = false;
+    public bool selected = false;
     GameObject selectedStation;
 
-    GameObject getStation(){
+    public GameObject getStation(){
         return selectedStation;
     }
 
     IEnumerator actuallySelectStation(){
         yield return new WaitUntil(() => selected);
-        if(selectedStation != null){
+        if((selectedStation != null) && (Input.GetKeyDown(KeyCode.LeftArrow) && Input.GetKeyDown(KeyCode.RightArrow) && Input.GetKeyDown(KeyCode.DownArrow))){
+            selectedStation.GetComponent<Station>().isSelected = false;
             selectedStation = null;
             allTheStations.AddComponent<RotateStations>();
         }else{
@@ -23,6 +24,7 @@ public class SelectStation : MonoBehaviour
                 Transform station = allTheStations.transform.GetChild(i);
                 if(Mathf.RoundToInt(station.position.x) == Mathf.RoundToInt(dizzy.transform.position.x) && Mathf.RoundToInt(station.position.y) <= Mathf.RoundToInt(dizzy.transform.position.y)){
                     selectedStation = station.gameObject;
+                    selectedStation.GetComponent<Station>().isSelected = true;
                 }
             }
             Destroy(allTheStations.GetComponent<RotateStations>());

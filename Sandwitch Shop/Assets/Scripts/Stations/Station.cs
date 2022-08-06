@@ -27,7 +27,6 @@ public abstract class Station : MonoBehaviour
     protected virtual void Update()
     {
         
-        isSelected = ss.selected && ss.getStation() == this.gameObject;
         if(isSelected)
         {
             if(Input.GetKeyDown(KeyCode.LeftArrow) && Input.GetKeyDown(KeyCode.RightArrow) && Input.GetKeyDown(KeyCode.DownArrow))

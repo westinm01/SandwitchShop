@@ -25,6 +25,7 @@ public class SelectStation : MonoBehaviour
                 if(Mathf.RoundToInt(station.position.x) == Mathf.RoundToInt(dizzy.transform.position.x) && Mathf.RoundToInt(station.position.y) <= Mathf.RoundToInt(dizzy.transform.position.y)){
                     selectedStation = station.gameObject;
                     selectedStation.GetComponent<Station>().isSelected = true;
+                    dizzy.gameObject.transform.position = new Vector3(0f,-1.6f,1f);
                 }
             }
             Destroy(allTheStations.GetComponent<RotateStations>());
@@ -40,7 +41,7 @@ public class SelectStation : MonoBehaviour
 
     IEnumerator unselectStation(){
         yield return new WaitUntil(() => selectedStation!=null);
-        if((Input.GetKeyDown(KeyCode.LeftArrow) && Input.GetKeyDown(KeyCode.RightArrow))){
+        if((Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow)) && selectedStation.GetComponent<Station>().canQuit){
             selectedStation.GetComponent<Station>().isSelected = false;
             selectedStation = null;
             allTheStations.AddComponent<RotateStations>();

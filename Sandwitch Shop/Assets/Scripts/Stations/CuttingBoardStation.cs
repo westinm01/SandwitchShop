@@ -26,9 +26,15 @@ public class CuttingBoardStation : Station
     public bool isPunching = false;
     public bool donePunching = false;
 
+    
     private SpriteRenderer foodSpriteRenderer;
+    public List<Sprite> foodCutSprites = new List<Sprite>();
+    private int fcsIndex;
     public List <Sprite> foodPunchSprites = new List<Sprite>();
     private int fpsIndex;
+    
+    public AudioClip cutAudio;
+    //public AudioClip punchAudio;
     //public Player player;
     protected override void Start()
     {
@@ -70,12 +76,38 @@ public class CuttingBoardStation : Station
     void Cut(){
         //for Veggies
         if(Hand.getItem().isCuttable && !Hand.getItem().isReadyForAssembly && !doneCutting){
+            canQuit = false;
             thisSpriteRenderer.sprite = cuttingSprite;
             cutsMade++;
             isCutting = true;
             //play cut animation
             playerArms.sprite = knifeDown;
 
+            if(Hand.getItem().TryGetComponent<Veggy>(out Veggy heldVeggy))
+            {
+                switch (heldVeggy.veggy){
+                    case Ingredients.veggy.Potato:
+                        fcsIndex = 0;
+                    break;
+                    case Ingredients.veggy.Lettuce:
+                        fcsIndex = 1;
+                    break;
+                    case Ingredients.veggy.Tomato:
+                        fcsIndex = 2;
+                    break;
+                    case Ingredients.veggy.Onion:
+                        fcsIndex = 3;
+                    break;
+                    case Ingredients.veggy.Mushroom:
+                        fcsIndex = 4;
+                    break;
+                    default:
+                    break;
+                }
+                foodSpriteRenderer.sprite = foodCutSprites[fcsIndex];
+            }
+
+            FindObjectOfType<MusicPlayer>().RecieveAndPlaySFX(cutAudio);
             if(cutsMade >= numberOfCuts)
             {
                 playerArms.sprite = null;
@@ -83,13 +115,14 @@ public class CuttingBoardStation : Station
                 isCutting = false;
                 cutsMade = 0;
                 Hand.getItem().isReadyForAssembly = true;
+                canQuit = true;
             }
             
         }
         //for Meats
         else if(Hand.getItem().isPunchable && !Hand.getItem().isPunched && !doneCutting)
         {
-
+            canQuit = false;
             if(Hand.getItem().TryGetComponent<Meat>(out Meat heldMeat))
             {
                 switch (heldMeat.meat){
@@ -118,7 +151,7 @@ public class CuttingBoardStation : Station
             
             cutsMade++;
             isPunching = true;
-
+            //FindObjectOfType<MusicPlayer>().RecieveAndPlaySFX(punchAudio);
             if(LRChoose)
             {
                 playerArms.sprite = punchLeft;
@@ -137,6 +170,7 @@ public class CuttingBoardStation : Station
                 isPunching = false;
                 cutsMade = 0;
                 Hand.getItem().isPunched = true;
+                canQuit = true;
             }
             
         }

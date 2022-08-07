@@ -12,7 +12,6 @@ public class BrewingStation : Station
     [SerializeField] public Sprite arrowDown;
     [SerializeField] public Sprite arrowLeft;
     [SerializeField] public Sprite arrowRight;
-    [SerializeField] public RuntimeAnimatorController poofSmoke;
 
     private int index = 0;
     private SpriteRenderer thisSpriteRenderer;
@@ -24,6 +23,9 @@ public class BrewingStation : Station
     public List<Sprite> iconSprites = new List<Sprite>();
 
     [SerializeField] bool beginBrew = false;
+
+    public AudioClip itemSound;
+    public AudioClip brewSound;
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -61,7 +63,6 @@ public class BrewingStation : Station
     {
         base.Update();
         if(isSelected && beginBrew){
-            objects.SetActive(true);
             if(whichAction < 0){
                 //thisSpriteRenderer.sprite = defaultSprite;
             }else if(whichAction < 3){
@@ -100,6 +101,7 @@ public class BrewingStation : Station
                         newFood.GetComponent<Dressing>().dressing = dressings[index];
                         Hand.setItem(newFood.GetComponent<Dressing>(), iconSprites[index]);
                         player.hasFood = true;
+                        FindObjectOfType<MusicPlayer>().RecieveAndPlaySFX(itemSound);
                     }
                 }else{
                     playerSequence.RemoveAt(playerSequence.Count-1);
@@ -133,17 +135,11 @@ public class BrewingStation : Station
     }
 
     IEnumerator stun(){
-        //objects.transform.GetChild(playerSequence.Count-1).gameObject.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("../Art Assets/SpriteSheets/smokeCloudSheet_0.controller") as RuntimeAnimatorController;
-        objects.transform.GetChild(playerSequence.Count).gameObject.GetComponent<Animator>().runtimeAnimatorController = poofSmoke;
-        objects.transform.GetChild(playerSequence.Count).gameObject.GetComponent<Animator>().SetBool("smokeCloudAnim", true);
         beginBrew = false;
         leftFunction = () => doNothing();
         rightFunction = () => doNothing();
         actionFunction = () => doNothing();
         yield return new WaitForSeconds(1.0f);
-        //objects.transform.GetChild(playerSequence.Count-1).gameObject.GetComponent<Animator>().runtimeAnimatorController = null;
-        objects.transform.GetChild(playerSequence.Count).gameObject.GetComponent<Animator>().SetBool("smokeCloudAnim", false);
-        objects.transform.GetChild(playerSequence.Count).gameObject.GetComponent<Animator>().runtimeAnimatorController = null;
         Brew();
         StopCoroutine(stun());
     }
@@ -158,6 +154,7 @@ public class BrewingStation : Station
         rightFunction = () => brewRight();
         actionFunction = () => brewDown();
         putPics();
+        FindObjectOfType<MusicPlayer>().RecieveAndPlaySFX(brewSound);
     }
 
     void putPics(){

@@ -8,6 +8,7 @@ public abstract class Station : MonoBehaviour
 {
 
     public bool isSelected;
+    public bool canQuit = true;
     //public SelectStation ss;
     public Player player;
 
@@ -33,11 +34,12 @@ public abstract class Station : MonoBehaviour
         
         if(isSelected)
         {
-            if(Input.GetKeyDown(KeyCode.LeftArrow) && Input.GetKeyDown(KeyCode.RightArrow))
+            
+            if(Input.GetKeyDown(KeyCode.LeftArrow) && Input.GetKeyDown(KeyCode.RightArrow) && canQuit)
             {
                 player.GetComponent<Animator>().SetInteger("StationNumber", 0);
                 isSelected = false;
-                player.gameObject.transform.position = new Vector3(0f, -1.8f, 1f);
+                player.gameObject.transform.position = new Vector3(0f, -1.6f, 1f);
             }
             else if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
@@ -56,5 +58,13 @@ public abstract class Station : MonoBehaviour
 
     protected void placeHolder(){
 
+    }
+
+    protected void DeselectStation()
+    {
+        player.GetComponent<Animator>().SetInteger("StationNumber", 0);
+        isSelected = false;
+        player.gameObject.transform.position = new Vector3(0f, -1.6f, 1f);
+        //Debug.Log("Station deselected");
     }
 }

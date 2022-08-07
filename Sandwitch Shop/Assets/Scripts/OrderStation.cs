@@ -23,6 +23,7 @@ public class OrderStation : Station
         {
             return;
         }
+        Debug.Log("Its ready!");
         // Check what type of ingredient the hand has
         // might have to do more checks later if the item has been properly prepared and cooked
         if (item.TryGetComponent<Bread>(out Bread heldBread))
@@ -35,8 +36,10 @@ public class OrderStation : Station
         }
         else if (item.TryGetComponent<Meat>(out Meat heldMeat))
         {
+            Debug.Log("its meat!");
             if(heldMeat.meat == desiredOrder.meat)
             {
+                Debug.Log("It matches and i giv");
                 myOrder.meat = heldMeat.meat;
                 Hand.dropItem();
             }

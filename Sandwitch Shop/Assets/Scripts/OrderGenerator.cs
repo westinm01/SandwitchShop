@@ -34,7 +34,7 @@ public class OrderGenerator : MonoBehaviour
     OrderTimer orderTimer;
     System.Random random = new System.Random();
 
-    private void Awake()
+    private void Start()
     {
         orderTimer = FindObjectOfType<OrderTimer>();
         orderStation = FindObjectOfType<OrderStation>();

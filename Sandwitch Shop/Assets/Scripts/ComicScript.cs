@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class ComicScript : MonoBehaviour
 {
-    [SerializeField] GameObject sceneLoaderButton;
+    [SerializeField] GameObject instructionText;
     [SerializeField] Sprite[] comicPics;
+    [SerializeField] GameObject[] comicText;
     [SerializeField] AudioClip[] playAudioOnPics;
     //[Header("Shake Screen On Pic")]
     [SerializeField] bool[] shakeScreenOnPics;
@@ -27,9 +28,24 @@ public class ComicScript : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && (currentPic + 1 < comicPics.Length))
+        if (Input.GetKeyDown(KeyCode.DownArrow) && (currentPic + 1 < comicPics.Length))
         {
+            if(currentPic == 0)
+            {
+                instructionText.SetActive(false);
+            }
             currentPic++;
+            foreach (GameObject text in comicText)
+            {
+                if(text != null)
+                {
+                    text.SetActive(false);
+                }
+            }
+            if (comicText[currentPic] != null)
+            {
+                comicText[currentPic].SetActive(true);
+            }
             if(shakeScreenOnPics[currentPic]) {
                 FindObjectOfType<CinemachineShake>().ShakeCamera(shakeIntensity, shakeFrequency, shakeDuration);
             }
@@ -37,9 +53,9 @@ public class ComicScript : MonoBehaviour
             {
                 Camera.main.GetComponent<AudioSource>().PlayOneShot(playAudioOnPics[currentPic]);
             }
-            if(currentPic + 1 == comicPics.Length)
+            if((currentPic + 1 == comicPics.Length) && Input.GetKeyDown(KeyCode.DownArrow))
             {
-                sceneLoaderButton.SetActive(true);
+                FindObjectOfType<SceneLoader>().LoadNextScene();
             }
         }
         GetComponent<SpriteRenderer>().sprite = comicPics[currentPic];

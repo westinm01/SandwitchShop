@@ -22,7 +22,6 @@ public class BrewingStation : Station
     public List<Sprite> iconSprites = new List<Sprite>();
 
     [SerializeField] bool beginBrew = false;
-    bool doneBrew = false;
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -56,9 +55,10 @@ public class BrewingStation : Station
         base.Update();
         if(isSelected && beginBrew){
             if(whichAction < 0){
+                thisSpriteRenderer.sprite = defaultSprite;
             }else if(whichAction < 13){
                 if(playerSequence[playerSequence.Count-1] == sequenceOfBrewing[playerSequence.Count-1]){
-                    
+                    thisSpriteRenderer.sprite = brewingSprite;
                 }else{
                     playerSequence.RemoveAt(playerSequence.Count-1);
                     whichAction--;
@@ -74,6 +74,7 @@ public class BrewingStation : Station
                 }
             }else{
                 if(playerSequence[playerSequence.Count-1] == sequenceOfBrewing[playerSequence.Count-1]){
+                    thisSpriteRenderer.sprite = doneSprite;
                     if (!player.hasFood){
                         GameObject newFood = new GameObject();
                         newFood.AddComponent<Dressing>();

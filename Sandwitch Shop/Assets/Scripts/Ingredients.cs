@@ -34,6 +34,9 @@ public class Ingredients : MonoBehaviour
     // Dressings
     public enum dressing
     {
-        Vinegar
+        Vinegar,
+        Ketchup,
+        Mustard,
+        NoDressing
     }
 }

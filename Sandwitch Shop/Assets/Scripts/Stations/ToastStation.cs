@@ -17,6 +17,13 @@ public class ToastStation : Station
     public float timeToToast = 10.0f;
     private float currentTime = 0.0f;
     private bool breadReady = false;
+
+    public AudioClip breadIn;
+    public AudioClip breadOut;
+
+    public AudioClip itemSound;
+
+    
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -46,6 +53,7 @@ public class ToastStation : Station
                thisSpriteRenderer.sprite = doneSprite;
                 breadReady = true;
                 isToasting = false;
+                FindObjectOfType<MusicPlayer>().RecieveAndPlaySFX(breadOut);
             }
         }
     }
@@ -74,18 +82,22 @@ public class ToastStation : Station
         {
             isToasting = true;
             thisSpriteRenderer.sprite = toastingSprite;
+            FindObjectOfType<MusicPlayer>().RecieveAndPlaySFX(breadIn);
         }
         else
         {
-            if (!player.hasFood)
+            if (Hand.getItem() == null)
                     {
                         thisSpriteRenderer.sprite = defaultSprite;
                         currentTime = 0;
                         GameObject newFood = new GameObject();
                         newFood.AddComponent<Bread>();
                         newFood.GetComponent<Bread>().bread = breads[index];
+                        newFood.GetComponent<Bread>().isReadyForAssembly = true;
+                        Hand.setItem(newFood.GetComponent<Bread>(), iconSprites[index]);
                         player.hasFood = true;
                         breadReady = false;
+                        FindObjectOfType<MusicPlayer>().RecieveAndPlaySFX(itemSound);
                     }
         }
         

@@ -26,6 +26,7 @@ public class DropoffStation : Station
                 }else{
                     foodOnPlate.Add(Hand.getItem());
                     Hand.dropItem();
+                    player.hasFood = false;
                 }
             }
         }

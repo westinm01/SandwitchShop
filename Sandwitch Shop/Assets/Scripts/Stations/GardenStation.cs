@@ -20,6 +20,12 @@ public class GardenStation : Station
 
     private int currentStage = 0;
 
+    public AudioClip itemSound;
+
+    public Sprite playerHappySprite;
+    private Animator armsAnimator;
+
+    public AudioClip growSound;
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -37,6 +43,8 @@ public class GardenStation : Station
         leftFunction = () => MoveIndex(-1);
         rightFunction = () => MoveIndex(1);
         actionFunction = () => GrowItem();
+
+        armsAnimator = player.gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>();
         
 
     }
@@ -73,14 +81,15 @@ public class GardenStation : Station
                 {
                     currentStage++;
                     isGrowing = false;
+                    armsAnimator.enabled = false;
+                    armsAnimator.gameObject.GetComponent<SpriteRenderer>().sprite = null;
+                    player.GetComponent<Animator>().enabled = true;
+                    canQuit = true;
                     
                 }
             }
-            if(currentStage == 3 && Input.GetKeyUp(KeyCode.DownArrow))
-            {
-                
-                if (!player.hasFood)
-                    {
+            if(currentStage == 3 && Input.GetKeyUp(KeyCode.DownArrow) && Hand.getItem() == null)
+            {    
                         currentStage = 0;
                         thisSpriteRenderer.sprite = defaultSprite;
                         currentTime = 0;
@@ -90,7 +99,8 @@ public class GardenStation : Station
                         Hand.setItem(newFood.GetComponent<Veggy>(), iconSprites[index]);
                         player.hasFood = true;
 
-                    }
+                        FindObjectOfType<MusicPlayer>().RecieveAndPlaySFX(itemSound);
+                        
             }
         }
     }
@@ -114,6 +124,13 @@ public class GardenStation : Station
 
     public void GrowItem()
     {
+        if(currentStage == 0)
+        canQuit = false;
         isGrowing = true;
+        armsAnimator.enabled = true;
+        player.GetComponent<Animator>().enabled = false;
+        player.GetComponent<SpriteRenderer>().sprite = playerHappySprite;
+        FindObjectOfType<MusicPlayer>().RecieveAndPlaySFX(growSound);
+        
     }
 }

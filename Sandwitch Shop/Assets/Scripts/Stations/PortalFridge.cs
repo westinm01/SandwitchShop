@@ -32,9 +32,11 @@ public class PortalFridge : Station
         }
         else if(Hand.getItem())
         {
-            player.GetComponent<Animator>().SetInteger("StationNumber", 0);
-            player.gameObject.transform.position = new Vector3(player.gameObject.transform.position.x, -1.8f, 1f);
+            base.DeselectStation();
+            /*player.GetComponent<Animator>().SetInteger("StationNumber", 0);
+            player.gameObject.transform.position = new Vector3(player.gameObject.transform.position.x, -1.8f, 1f);*/
         }
+        
         //play animation here?
     }
 
@@ -62,6 +64,7 @@ public class PortalFridge : Station
             newFood.AddComponent<Meat>();
             newFood.GetComponent<Meat>().meat = meats[index];
             Hand.setItem(newFood.GetComponent<Meat>(), iconSprites[index]);
+            base.DeselectStation();
         }
     }
 }

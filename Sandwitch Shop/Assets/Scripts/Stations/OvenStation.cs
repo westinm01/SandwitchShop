@@ -17,6 +17,7 @@ public class OvenStation : Station
     public Sprite rawPan;
     public Sprite cookedPan;
 
+    public Meat spriteHolder;
     private Ingredients.meat meatType;
     
     protected override void Start()
@@ -53,7 +54,13 @@ public class OvenStation : Station
             isBaking = true;
             pan.SetActive(true);
             pan.GetComponent<SpriteRenderer>().sprite = rawPan;
-            Hand.dropItem();
+            if(Hand.getItem().TryGetComponent<Meat>(out Meat heldMeat))
+            {
+                meatType = heldMeat.meat;
+                Hand.dropItem();
+            }
+            
+            
         }
         else if (Hand.getItem() == null && !isBaking && meatReady)
         {
@@ -63,7 +70,12 @@ public class OvenStation : Station
             player.hasFood = true;
             pan.GetComponent<SpriteRenderer>().sprite = defaultPan;
             pan.SetActive(false);
-            
+            GameObject cookedFood = new GameObject();
+            cookedFood.AddComponent<Meat>();
+
+            cookedFood.GetComponent<Meat>().meat = meatType;
+            Hand.setItem(cookedFood.GetComponent<Meat>(), spriteHolder.GetSprite(cookedFood.GetComponent<Meat>().meat));
+            player.hasFood = true;
             //Meat cookedMeat = new Meat();
             //cookedMeat.meat = meatType;
             //Hand.setItem(cookedMeat, iconSprites[index]);// would be nice to make more brown cuz of the cooking

@@ -21,6 +21,9 @@ public abstract class Station : MonoBehaviour
     protected virtual void Start()
     {
         isSelected = false;
+        leftFunction = () => placeHolder();
+        rightFunction = () => placeHolder();
+        actionFunction = () => placeHolder();
     }
 
 
@@ -49,5 +52,9 @@ public abstract class Station : MonoBehaviour
                 actionFunction();
             }
         }
+    }
+
+    protected void placeHolder(){
+
     }
 }

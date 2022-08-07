@@ -23,6 +23,8 @@ public class BrewingStation : Station
     public List<Sprite> iconSprites = new List<Sprite>();
 
     [SerializeField] bool beginBrew = false;
+
+    public AudioClip itemSound;
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -98,6 +100,7 @@ public class BrewingStation : Station
                         newFood.GetComponent<Dressing>().dressing = dressings[index];
                         Hand.setItem(newFood.GetComponent<Dressing>(), iconSprites[index]);
                         player.hasFood = true;
+                        FindObjectOfType<MusicPlayer>().RecieveAndPlaySFX(itemSound);
                     }
                 }else{
                     playerSequence.RemoveAt(playerSequence.Count-1);

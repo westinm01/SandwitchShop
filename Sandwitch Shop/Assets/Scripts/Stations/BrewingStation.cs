@@ -106,6 +106,27 @@ public class BrewingStation : Station
                 }
             }
             checkPics();
+        }else if(!isSelected && thisSpriteRenderer.sprite == doneSprite){
+            thisSpriteRenderer.sprite = defaultSprite;
+            sequenceOfBrewing = new List<KeyCode>();
+            playerSequence = new List<KeyCode>();
+            List<KeyCode> allTheInputs = new List<KeyCode>();
+            allTheInputs.Add(KeyCode.DownArrow);
+            allTheInputs.Add(KeyCode.LeftArrow);
+            allTheInputs.Add(KeyCode.RightArrow);
+            for(int i=0; i<16; ++i){
+                int randInput = Mathf.RoundToInt(Random.Range(0, 3));
+                if(randInput == 3){
+                    randInput = 2;
+                }
+                sequenceOfBrewing.Add(allTheInputs[randInput]);
+            }
+            index = 0;
+            whichAction = -1;
+            for(int i=0; i<16; ++i){
+                objects.transform.GetChild(i).gameObject.SetActive(true);
+                objects.transform.GetChild(i).gameObject.GetComponent<SpriteRenderer>().sprite = null;
+            }
         }
     }
 

@@ -18,6 +18,9 @@ public class CuttingBoardStation : Station
     public bool isCutting = false;
     public bool doneCutting = false;
 
+    public bool isPunching = false;
+    public bool donePunching = false;
+
     //public Player player;
     protected override void Start()
     {
@@ -79,4 +82,21 @@ public class CuttingBoardStation : Station
             
         }
     }
+    /*
+    void Punch(){
+        if(Hand.getItem().isPunchable && !Hand.getItem().isPunched && !donePunching)
+        {
+            cutsMade++;
+            isPunching = true;
+            //play punching animation;
+            
+
+            if(cutsMade >= numberOfCuts)
+            {
+                doneCutting = true;
+                cutsMade = 0;
+                Hand.getItem().isReadyForAssembly = true;
+            }
+        }
+    }*/
 }

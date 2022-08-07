@@ -20,6 +20,7 @@ public class OvenStation : Station
     public Meat spriteHolder;
     private Ingredients.meat meatType;
     
+    public AudioClip sizzleSound;
     protected override void Start()
     {
         base.Start();
@@ -59,7 +60,7 @@ public class OvenStation : Station
                 meatType = heldMeat.meat;
                 Hand.dropItem();
             }
-            
+            FindObjectOfType<MusicPlayer>().RecieveAndPlaySFX(sizzleSound);
             
         }
         else if (Hand.getItem() == null && !isBaking && meatReady)

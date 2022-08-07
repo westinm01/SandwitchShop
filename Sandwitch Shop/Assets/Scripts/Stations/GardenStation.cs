@@ -20,6 +20,8 @@ public class GardenStation : Station
 
     private int currentStage = 0;
 
+    public AudioClip itemSound;
+
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -89,6 +91,8 @@ public class GardenStation : Station
                         newFood.GetComponent<Veggy>().veggy = veggies[index];
                         Hand.setItem(newFood.GetComponent<Veggy>(), iconSprites[index]);
                         player.hasFood = true;
+
+                        FindObjectOfType<MusicPlayer>().RecieveAndPlaySFX(itemSound);
 
                     }
             }

@@ -10,6 +10,8 @@ public class PortalFridge : Station
     
     private SpriteRenderer iconSprite;
     public List<Sprite> iconSprites = new List<Sprite>();
+
+    public AudioClip itemSound;
     
     protected override void Start()
     {
@@ -65,6 +67,7 @@ public class PortalFridge : Station
             newFood.GetComponent<Meat>().meat = meats[index];
             Hand.setItem(newFood.GetComponent<Meat>(), iconSprites[index]);
             base.DeselectStation();
+            FindObjectOfType<MusicPlayer>().RecieveAndPlaySFX(itemSound);
         }
     }
 }

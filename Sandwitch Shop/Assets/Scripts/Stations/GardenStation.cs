@@ -22,6 +22,9 @@ public class GardenStation : Station
 
     public AudioClip itemSound;
 
+    public Sprite playerHappySprite;
+    private Animator armsAnimator;
+
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -39,6 +42,8 @@ public class GardenStation : Station
         leftFunction = () => MoveIndex(-1);
         rightFunction = () => MoveIndex(1);
         actionFunction = () => GrowItem();
+
+        armsAnimator = player.gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>();
         
 
     }
@@ -75,6 +80,9 @@ public class GardenStation : Station
                 {
                     currentStage++;
                     isGrowing = false;
+                    armsAnimator.enabled = false;
+                    armsAnimator.gameObject.GetComponent<SpriteRenderer>().sprite = null;
+                    player.GetComponent<Animator>().enabled = true;
                     
                 }
             }
@@ -119,5 +127,9 @@ public class GardenStation : Station
     public void GrowItem()
     {
         isGrowing = true;
+        armsAnimator.enabled = true;
+        player.GetComponent<Animator>().enabled = false;
+        player.GetComponent<SpriteRenderer>().sprite = playerHappySprite;
+        
     }
 }

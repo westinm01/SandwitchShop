@@ -11,6 +11,8 @@ public class Meat : Food
     protected override void Start()
     {
         isCuttable = false;
+        isBakable = true;
+        isPunchable = true;
     }
 
     public Sprite GetSprite(Ingredients.meat meatType)

@@ -51,6 +51,10 @@ public class OrderGenerator : MonoBehaviour
         else if((ordersComplete == ordersInRound) && !orderInProgress)
         {
             GenerateBossOrder();
+        } 
+        else if((ordersComplete > ordersInRound) && !orderInProgress)
+        {
+            FindObjectOfType<LevelManager>().WinGame();
         }
     }
 
@@ -89,6 +93,7 @@ public class OrderGenerator : MonoBehaviour
     private void GenerateBossOrder()
     {
         orderInProgress = true;
+        FindObjectOfType<LevelManager>().PlayLevelBossMusic();
 
         // Update Slider to use boss order time
         orderTimer.UpdateMaxTime(bossOrderTime);

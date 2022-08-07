@@ -6,11 +6,11 @@ using UnityEngine.UI;
 
 public class OrderGenerator : MonoBehaviour
 {
-    // Game Stats
+    // Order Stats and Variables
     [SerializeField] int ordersInRound = 7;
-    [SerializeField] OrderTimer orderTimer;
     [SerializeField] float timePerOrder = 20f;
     [SerializeField] float bossOrderTime = 30f;
+    [SerializeField] int orderScoreValue = 1000;
 
     // Boss sandwich
     [SerializeField] Ingredients.bread bossBread;
@@ -27,12 +27,19 @@ public class OrderGenerator : MonoBehaviour
     // Private Variables
     int ordersComplete = 0;
     bool orderInProgress = false;
+    GeneratedOrder currentOrder = null;
 
+    // Cached References
+    OrderStation orderStation;
+    OrderTimer orderTimer;
     System.Random random = new System.Random();
 
     private void Awake()
     {
+        orderTimer = FindObjectOfType<OrderTimer>();
+        orderStation = FindObjectOfType<OrderStation>();
         orderTimer.UpdateMaxTime(timePerOrder);
+        GenerateRandomOrder();
     }
 
     private void Update()
@@ -41,13 +48,13 @@ public class OrderGenerator : MonoBehaviour
         {
             GenerateRandomOrder();
         } 
-        else if(ordersComplete == ordersInRound)
+        else if((ordersComplete == ordersInRound) && !orderInProgress)
         {
             GenerateBossOrder();
         }
     }
 
-    private GeneratedOrder GenerateRandomOrder()
+    private void GenerateRandomOrder()
     {
         orderInProgress = true;
 
@@ -68,17 +75,21 @@ public class OrderGenerator : MonoBehaviour
             veggy = randomVeggy,
             dressing = randomDressing
         };
+
         // Update UI to show the 4 random items
         breadImage.sprite = FindObjectOfType<Bread>().GetSprite(randomBread);
         meatImage.sprite = FindObjectOfType<Meat>().GetSprite(randomMeat);
         veggyImage.sprite = FindObjectOfType<Veggy>().GetSprite(randomVeggy);
         dressingImage.sprite = FindObjectOfType<Dressing>().GetSprite(randomDressing);
 
-        return order;
+        currentOrder = order;
+        orderStation.RecieveDesiredOrder(currentOrder);
     }
 
-    private GeneratedOrder GenerateBossOrder()
+    private void GenerateBossOrder()
     {
+        orderInProgress = true;
+
         // Update Slider to use boss order time
         orderTimer.UpdateMaxTime(bossOrderTime);
 
@@ -96,13 +107,15 @@ public class OrderGenerator : MonoBehaviour
         veggyImage.sprite = FindObjectOfType<Veggy>().GetSprite(bossVeggy);
         dressingImage.sprite = FindObjectOfType<Dressing>().GetSprite(bossDressing);
 
-        return bossOrder;
+        currentOrder = bossOrder;
+        orderStation.RecieveDesiredOrder(currentOrder);
     }
 
-    public void OrderComplete()
+    public void CompleteOrder()
     {
         orderInProgress = false;
         ordersComplete++;
+        FindObjectOfType<ScoreKeeper>().AddScore(orderScoreValue);
     }
 
     private Ingredients.bread GetRandomBread()

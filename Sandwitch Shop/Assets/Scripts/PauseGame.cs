@@ -31,7 +31,7 @@ public class PauseGame : MonoBehaviour
             if(timeHeldDown >= timeToPause)
             {
                 timeHeldDown = 0f;
-                FindObjectOfType<GameStateManager>().PauseGame();
+                FindObjectOfType<LevelManager>().PauseGame();
             }
         }
     }

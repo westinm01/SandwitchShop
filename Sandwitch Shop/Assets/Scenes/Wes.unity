@@ -8544,7 +8544,7 @@ PrefabInstance:
     - target: {fileID: 1283004249, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
       propertyPath: foodCutSprites.Array.data[3]
       value: 
-      objectReference: {fileID: 21300000, guid: e3530eb8d80dc8246922b469c20c4b3b, type: 3}
+      objectReference: {fileID: 21300000, guid: c806ea663c6b097439554fb3cf948d2e, type: 3}
     - target: {fileID: 1283004249, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
       propertyPath: foodCutSprites.Array.data[4]
       value: 

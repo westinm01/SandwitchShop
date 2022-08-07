@@ -12,6 +12,7 @@ public class BrewingStation : Station
     [SerializeField] public Sprite arrowDown;
     [SerializeField] public Sprite arrowLeft;
     [SerializeField] public Sprite arrowRight;
+    [SerializeField] public RuntimeAnimatorController poofSmoke;
 
     private int index = 0;
     private SpriteRenderer thisSpriteRenderer;
@@ -65,6 +66,7 @@ public class BrewingStation : Station
         if(isSelected && beginBrew){
             if(whichAction < 0){
                 //thisSpriteRenderer.sprite = defaultSprite;
+                objects.SetActive(true);
             }else if(whichAction < 3){
                 if(playerSequence[playerSequence.Count-1] == sequenceOfBrewing[playerSequence.Count-1]){
                     thisSpriteRenderer.sprite = defaultSprite;
@@ -135,11 +137,15 @@ public class BrewingStation : Station
     }
 
     IEnumerator stun(){
+        objects.transform.GetChild(playerSequence.Count).gameObject.GetComponent<Animator>().runtimeAnimatorController = poofSmoke;
+        objects.transform.GetChild(playerSequence.Count).gameObject.GetComponent<Animator>().SetBool("smokeCloudAnim", true);
         beginBrew = false;
         leftFunction = () => doNothing();
         rightFunction = () => doNothing();
         actionFunction = () => doNothing();
         yield return new WaitForSeconds(1.0f);
+        objects.transform.GetChild(playerSequence.Count).gameObject.GetComponent<Animator>().SetBool("smokeCloudAnim", false);
+        objects.transform.GetChild(playerSequence.Count).gameObject.GetComponent<Animator>().runtimeAnimatorController = null;
         Brew();
         StopCoroutine(stun());
     }

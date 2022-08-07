@@ -84,6 +84,7 @@ public class ToastStation : Station
                         GameObject newFood = new GameObject();
                         newFood.AddComponent<Bread>();
                         newFood.GetComponent<Bread>().bread = breads[index];
+                        newFood.GetComponent<Bread>().isReadyForAssembly = true;
                         Hand.setItem(newFood.GetComponent<Bread>(), iconSprites[index]);
                         player.hasFood = true;
                         breadReady = false;

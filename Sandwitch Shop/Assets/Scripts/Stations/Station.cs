@@ -30,7 +30,7 @@ public abstract class Station : MonoBehaviour
         
         if(isSelected)
         {
-            if(Input.GetKeyDown(KeyCode.LeftArrow) && Input.GetKeyDown(KeyCode.RightArrow) && Input.GetKeyDown(KeyCode.DownArrow))
+            if(Input.GetKeyDown(KeyCode.LeftArrow) && Input.GetKeyDown(KeyCode.RightArrow))
             {
                 player.GetComponent<Animator>().SetInteger("StationNumber", 0);
                 isSelected = false;

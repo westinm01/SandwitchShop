@@ -15,13 +15,14 @@ public abstract class Station : MonoBehaviour
     protected Action rightFunction;
     protected Action actionFunction;
     //These are defined in derived classes.
-
+    
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
         isSelected = false;
     }
+
 
     // Update is called once per frame
     protected virtual void Update()
@@ -31,7 +32,9 @@ public abstract class Station : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.LeftArrow) && Input.GetKeyDown(KeyCode.RightArrow) && Input.GetKeyDown(KeyCode.DownArrow))
             {
+                player.GetComponent<Animator>().SetInteger("StationNumber", 0);
                 isSelected = false;
+                player.gameObject.transform.position = new Vector3(0f, -1.8f, 1f);
             }
             else if (Input.GetKeyDown(KeyCode.LeftArrow))
             {

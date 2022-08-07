@@ -8,6 +8,10 @@ public class CuttingBoardStation : Station
     public Sprite defaultSprite;
     public Sprite cuttingSprite;
     public SpriteRenderer thisSpriteRenderer;
+    private SpriteRenderer playerArms;
+
+    public Sprite knifeUp;
+    public Sprite knifeDown;
 
     public int numberOfCuts = 15;
     private int cutsMade = 0;
@@ -21,20 +25,26 @@ public class CuttingBoardStation : Station
         //assign buttons
         actionFunction = () => Cut();
         thisSpriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
+        playerArms = player.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
     }
 
 
     protected override void Update()
     {
+        
         base.Update();
         if(doneCutting)
         {
-            if(Input.GetKeyUp(KeyCode.DownArrow))
+            if (Input.GetKeyUp(KeyCode.DownArrow))
             {
                 //set a flag indicating that the veggy has been cut.
                 thisSpriteRenderer.sprite = defaultSprite;
                 doneCutting = false;
             }
+        }
+        else if (Input.GetKeyUp(KeyCode.DownArrow) && isCutting)
+        {
+            playerArms.sprite = knifeUp;
         }
     }
     
@@ -45,8 +55,11 @@ public class CuttingBoardStation : Station
             cutsMade++;
             isCutting = true;
             //play cut animation
+            playerArms.sprite = knifeDown;
+
             if(cutsMade >= numberOfCuts)
             {
+                playerArms.sprite = null;
                 doneCutting = true;
                 isCutting = false;
                 cutsMade = 0;

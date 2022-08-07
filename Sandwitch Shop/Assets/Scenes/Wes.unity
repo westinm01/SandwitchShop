@@ -8661,6 +8661,18 @@ PrefabInstance:
       propertyPath: objects
       value: 
       objectReference: {fileID: 1030888813}
+    - target: {fileID: 3791890424719987372, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
+      propertyPath: defaultSprite2
+      value: 
+      objectReference: {fileID: 21300000, guid: fa2e9f6da4b15a640a8edc24c72283cf, type: 3}
+    - target: {fileID: 3791890424719987372, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
+      propertyPath: iconSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: ec66079105420d548822b0871c73bff3, type: 3}
+    - target: {fileID: 3793407281024285807, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ec66079105420d548822b0871c73bff3, type: 3}
     - target: {fileID: 4856900201894597494, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
       propertyPath: player
       value: 

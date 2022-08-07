@@ -82,7 +82,10 @@ public class BrewingStation : Station
                     StartCoroutine(stun());
                 }
             }else{
-                if(playerSequence[playerSequence.Count-1] == sequenceOfBrewing[playerSequence.Count-1]){
+                if(playerSequence.Count > sequenceOfBrewing.Count){
+                    playerSequence.RemoveAt(playerSequence.Count-1);
+                    whichAction--;
+                }else if(playerSequence[playerSequence.Count-1] == sequenceOfBrewing[playerSequence.Count-1]){
                     thisSpriteRenderer.sprite = doneSprite;
                     if (!player.hasFood){
                         GameObject newFood = new GameObject();
@@ -91,9 +94,6 @@ public class BrewingStation : Station
                         Hand.setItem(newFood.GetComponent<Dressing>(), iconSprites[index]);
                         player.hasFood = true;
                     }
-                }else if(playerSequence.Count > sequenceOfBrewing.Count){
-                    playerSequence.RemoveAt(playerSequence.Count-1);
-                    whichAction--;
                 }else{
                     playerSequence.RemoveAt(playerSequence.Count-1);
                     whichAction--;

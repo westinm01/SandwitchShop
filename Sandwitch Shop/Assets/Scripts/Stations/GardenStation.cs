@@ -101,6 +101,7 @@ public class GardenStation : Station
                         player.hasFood = true;
 
                         FindObjectOfType<MusicPlayer>().RecieveAndPlaySFX(itemSound);
+                        canQuit = true;
 
                     }
             }
@@ -126,6 +127,7 @@ public class GardenStation : Station
 
     public void GrowItem()
     {
+        canQuit = false;
         isGrowing = true;
         armsAnimator.enabled = true;
         player.GetComponent<Animator>().enabled = false;

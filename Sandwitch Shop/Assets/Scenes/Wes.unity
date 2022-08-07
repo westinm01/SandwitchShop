@@ -8501,6 +8501,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 466745326, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.24
+      objectReference: {fileID: 0}
     - target: {fileID: 657219215, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
       propertyPath: dizzy
       value: 
@@ -8521,6 +8525,30 @@ PrefabInstance:
       propertyPath: cutAudio
       value: 
       objectReference: {fileID: 8300000, guid: e65f5763a84c3af43a9a568f131829dc, type: 3}
+    - target: {fileID: 1283004249, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
+      propertyPath: foodPunchSprites.Array.data[6]
+      value: 
+      objectReference: {fileID: 21300000, guid: 73294ed137616be489ee5b163137dde7, type: 3}
+    - target: {fileID: 1283004249, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
+      propertyPath: foodPunchSprites.Array.data[7]
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cb4a270fae6f564fa2f6b43540cf7eb, type: 3}
+    - target: {fileID: 1283004249, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
+      propertyPath: foodPunchSprites.Array.data[8]
+      value: 
+      objectReference: {fileID: 21300000, guid: 4842125acca693c44859b9062781f8e8, type: 3}
+    - target: {fileID: 1283004249, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
+      propertyPath: foodPunchSprites.Array.data[9]
+      value: 
+      objectReference: {fileID: 21300000, guid: e62f4f94e74f5184f94778ef62b3f1da, type: 3}
+    - target: {fileID: 1283004249, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
+      propertyPath: foodPunchSprites.Array.data[10]
+      value: 
+      objectReference: {fileID: 21300000, guid: e04056c775685c742a1e13619282d4fe, type: 3}
+    - target: {fileID: 1283004249, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
+      propertyPath: foodPunchSprites.Array.data[11]
+      value: 
+      objectReference: {fileID: 21300000, guid: 4e6237b705eb2b042bfa343505c2ec6c, type: 3}
     - target: {fileID: 1426718331, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
       propertyPath: player
       value: 
@@ -8593,6 +8621,10 @@ PrefabInstance:
       propertyPath: itemSound
       value: 
       objectReference: {fileID: 8300000, guid: ceab412ce925a164f9170a01cdb98f8c, type: 3}
+    - target: {fileID: 3075051621921893689, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
+      propertyPath: playerHappySprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6e849d474f5c4054b9b5bb6fe92efd95, type: 3}
     - target: {fileID: 3791890424719987372, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
       propertyPath: player
       value: 

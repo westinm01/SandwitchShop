@@ -73,6 +73,7 @@ public class CuttingBoardStation : Station
     void Cut(){
         //for Veggies
         if(Hand.getItem().isCuttable && !Hand.getItem().isReadyForAssembly && !doneCutting){
+            canQuit = false;
             thisSpriteRenderer.sprite = cuttingSprite;
             cutsMade++;
             isCutting = true;
@@ -87,13 +88,14 @@ public class CuttingBoardStation : Station
                 isCutting = false;
                 cutsMade = 0;
                 Hand.getItem().isReadyForAssembly = true;
+                canQuit = true;
             }
             
         }
         //for Meats
         else if(Hand.getItem().isPunchable && !Hand.getItem().isPunched && !doneCutting)
         {
-
+            canQuit = false;
             if(Hand.getItem().TryGetComponent<Meat>(out Meat heldMeat))
             {
                 switch (heldMeat.meat){
@@ -141,6 +143,7 @@ public class CuttingBoardStation : Station
                 isPunching = false;
                 cutsMade = 0;
                 Hand.getItem().isPunched = true;
+                canQuit = true;
             }
             
         }

@@ -8,6 +8,7 @@ public abstract class Station : MonoBehaviour
 {
 
     public bool isSelected;
+    public bool canQuit = true;
     //public SelectStation ss;
     public Player player;
 
@@ -34,7 +35,7 @@ public abstract class Station : MonoBehaviour
         if(isSelected)
         {
             
-            if(Input.GetKeyDown(KeyCode.LeftArrow) && Input.GetKeyDown(KeyCode.RightArrow))
+            if(Input.GetKeyDown(KeyCode.LeftArrow) && Input.GetKeyDown(KeyCode.RightArrow) && canQuit)
             {
                 player.GetComponent<Animator>().SetInteger("StationNumber", 0);
                 isSelected = false;

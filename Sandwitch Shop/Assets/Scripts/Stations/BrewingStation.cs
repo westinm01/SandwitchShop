@@ -16,6 +16,7 @@ public class BrewingStation : Station
     private int index = 0;
     private SpriteRenderer thisSpriteRenderer;
     public Sprite defaultSprite;
+    public Sprite defaultSprite2;
     public Sprite brewingSprite;
     public Sprite doneSprite;
     private SpriteRenderer iconSprite;
@@ -55,10 +56,18 @@ public class BrewingStation : Station
         base.Update();
         if(isSelected && beginBrew){
             if(whichAction < 0){
-                thisSpriteRenderer.sprite = defaultSprite;
-            }else if(whichAction < 13){
+                //thisSpriteRenderer.sprite = defaultSprite;
+            }else if(whichAction < 3){
                 if(playerSequence[playerSequence.Count-1] == sequenceOfBrewing[playerSequence.Count-1]){
-                    thisSpriteRenderer.sprite = brewingSprite;
+                    thisSpriteRenderer.sprite = defaultSprite;
+                }else{
+                    playerSequence.RemoveAt(playerSequence.Count-1);
+                    whichAction--;
+                    StartCoroutine(stun());
+                }
+            }else if(whichAction < 7){
+                if(playerSequence[playerSequence.Count-1] == sequenceOfBrewing[playerSequence.Count-1]){
+                    thisSpriteRenderer.sprite = defaultSprite2;
                 }else{
                     playerSequence.RemoveAt(playerSequence.Count-1);
                     whichAction--;
@@ -66,7 +75,7 @@ public class BrewingStation : Station
                 }
             }else if(whichAction < 15){
                 if(playerSequence[playerSequence.Count-1] == sequenceOfBrewing[playerSequence.Count-1]){
-                    
+                    thisSpriteRenderer.sprite = brewingSprite;
                 }else{
                     playerSequence.RemoveAt(playerSequence.Count-1);
                     whichAction--;

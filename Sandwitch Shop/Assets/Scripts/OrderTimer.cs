@@ -21,7 +21,7 @@ public class OrderTimer : MonoBehaviour
         {
             // Lose game if timer runs out of time
             timeLeft = 0f;
-            FindObjectOfType<GameStateManager>().LoseGame();
+            FindObjectOfType<LevelManager>().LoseGame();
         }
         slider.value = timeLeft;
     }

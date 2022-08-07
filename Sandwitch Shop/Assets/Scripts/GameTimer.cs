@@ -14,7 +14,7 @@ public class GameTimer : MonoBehaviour
         if(time <= 0)
         {
             time = 0;
-            FindObjectOfType<GameStateManager>().LoseGame();
+            FindObjectOfType<LevelManager>().LoseGame();
         }
         timerText.text = "Time: " + ((int)time).ToString();
     }

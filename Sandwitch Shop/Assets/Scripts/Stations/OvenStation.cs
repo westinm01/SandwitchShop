@@ -64,27 +64,20 @@ public class OvenStation : Station
         }
         else if (Hand.getItem() == null && !isBaking && meatReady)
         {
-            //pan.SetActive(false);
+            
             currentTime = 0;
             meatReady = false;
-            player.hasFood = true;
+
             pan.GetComponent<SpriteRenderer>().sprite = defaultPan;
             pan.SetActive(false);
+
             GameObject cookedFood = new GameObject();
             cookedFood.AddComponent<Meat>();
-
             cookedFood.GetComponent<Meat>().meat = meatType;
+            cookedFood.GetComponent<Meat>().isReadyForAssembly = true;
             Hand.setItem(cookedFood.GetComponent<Meat>(), spriteHolder.GetSprite(cookedFood.GetComponent<Meat>().meat));
             player.hasFood = true;
-            //Meat cookedMeat = new Meat();
-            //cookedMeat.meat = meatType;
-            //Hand.setItem(cookedMeat, iconSprites[index]);// would be nice to make more brown cuz of the cooking
-            //player.currentFood.isBaked = true;
-            /*GameObject newFood = new GameObject();
-            newFood.AddComponent<Bread>();
-            newFood.GetComponent<Bread>().bread = breads[index];
-            Hand.setItem(newFood.GetComponent<Bread>(), iconSprites[index]);
-            player.hasFood = true;*/
+            
         }
         
     }

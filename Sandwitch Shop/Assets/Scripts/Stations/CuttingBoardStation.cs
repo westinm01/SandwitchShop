@@ -58,7 +58,7 @@ public class CuttingBoardStation : Station
         else if (Input.GetKeyUp(KeyCode.DownArrow) && isCutting)
         {
             playerArms.sprite = knifeUp;
-            foodSpriteRenderer.sprite = foodPunchSprites[fpsIndex];
+            //foodSpriteRenderer.sprite = foodPunchSprites[fpsIndex];
         }
         else if(Input.GetKeyUp(KeyCode.DownArrow) && isPunching)
         {

@@ -47,7 +47,7 @@ public class OvenStation : Station
 
     void Bake()
     {
-        if (Hand.getItem() != null && Hand.getItem().isBakable && !isBaking && !meatReady)
+        if (Hand.getItem() != null && Hand.getItem().isBakable && Hand.getItem().isPunched && !isBaking && !meatReady)
         {
             //meatType = Hand.getItem().TryGetComponent<Meat>().meat;
             player.hasFood = false; //need to drop item from Hand too...

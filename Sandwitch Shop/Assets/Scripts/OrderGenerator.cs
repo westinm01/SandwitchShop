@@ -51,6 +51,10 @@ public class OrderGenerator : MonoBehaviour
         else if((ordersComplete == ordersInRound) && !orderInProgress)
         {
             GenerateBossOrder();
+        } 
+        else if((ordersComplete > ordersInRound) && !orderInProgress)
+        {
+            FindObjectOfType<GameStateManager>().WinGame();
         }
     }
 

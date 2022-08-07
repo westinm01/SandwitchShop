@@ -25,6 +25,7 @@ public class GardenStation : Station
     public Sprite playerHappySprite;
     private Animator armsAnimator;
 
+    public AudioClip growSound;
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -83,14 +84,12 @@ public class GardenStation : Station
                     armsAnimator.enabled = false;
                     armsAnimator.gameObject.GetComponent<SpriteRenderer>().sprite = null;
                     player.GetComponent<Animator>().enabled = true;
+                    canQuit = true;
                     
                 }
             }
             if(currentStage == 3 && Input.GetKeyUp(KeyCode.DownArrow) && Hand.getItem() == null)
-            {
-                
-                if (!player.hasFood)
-                    {
+            {    
                         currentStage = 0;
                         thisSpriteRenderer.sprite = defaultSprite;
                         currentTime = 0;
@@ -101,9 +100,7 @@ public class GardenStation : Station
                         player.hasFood = true;
 
                         FindObjectOfType<MusicPlayer>().RecieveAndPlaySFX(itemSound);
-                        canQuit = true;
-
-                    }
+                        
             }
         }
     }
@@ -127,11 +124,13 @@ public class GardenStation : Station
 
     public void GrowItem()
     {
+        if(currentStage == 0)
         canQuit = false;
         isGrowing = true;
         armsAnimator.enabled = true;
         player.GetComponent<Animator>().enabled = false;
         player.GetComponent<SpriteRenderer>().sprite = playerHappySprite;
+        FindObjectOfType<MusicPlayer>().RecieveAndPlaySFX(growSound);
         
     }
 }

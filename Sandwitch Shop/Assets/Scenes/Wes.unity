@@ -8526,6 +8526,30 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: e65f5763a84c3af43a9a568f131829dc, type: 3}
     - target: {fileID: 1283004249, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
+      propertyPath: foodCutSprites.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1283004249, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
+      propertyPath: foodCutSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 633b055666b1496488ed4400b4149fb6, type: 3}
+    - target: {fileID: 1283004249, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
+      propertyPath: foodCutSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 8843ce0eee17ea04ba0c42fdfcb88e4e, type: 3}
+    - target: {fileID: 1283004249, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
+      propertyPath: foodCutSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: e3530eb8d80dc8246922b469c20c4b3b, type: 3}
+    - target: {fileID: 1283004249, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
+      propertyPath: foodCutSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: e3530eb8d80dc8246922b469c20c4b3b, type: 3}
+    - target: {fileID: 1283004249, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
+      propertyPath: foodCutSprites.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: 4194d6bbe3cee174d9fc54f0fb6669a3, type: 3}
+    - target: {fileID: 1283004249, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
       propertyPath: foodPunchSprites.Array.data[6]
       value: 
       objectReference: {fileID: 21300000, guid: 73294ed137616be489ee5b163137dde7, type: 3}
@@ -8617,6 +8641,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 652699793}
+    - target: {fileID: 3075051621921893689, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
+      propertyPath: growSound
+      value: 
+      objectReference: {fileID: 8300000, guid: a1d0e4d028e4c754ba00274649ffc73e, type: 3}
     - target: {fileID: 3075051621921893689, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
       propertyPath: itemSound
       value: 

@@ -26,10 +26,13 @@ public class CuttingBoardStation : Station
     public bool isPunching = false;
     public bool donePunching = false;
 
+    
     private SpriteRenderer foodSpriteRenderer;
+    public List<Sprite> foodCutSprites = new List<Sprite>();
+    private int fcsIndex;
     public List <Sprite> foodPunchSprites = new List<Sprite>();
     private int fpsIndex;
-
+    
     public AudioClip cutAudio;
     //public AudioClip punchAudio;
     //public Player player;
@@ -79,6 +82,30 @@ public class CuttingBoardStation : Station
             isCutting = true;
             //play cut animation
             playerArms.sprite = knifeDown;
+
+            if(Hand.getItem().TryGetComponent<Veggy>(out Veggy heldVeggy))
+            {
+                switch (heldVeggy.veggy){
+                    case Ingredients.veggy.Potato:
+                        fcsIndex = 0;
+                    break;
+                    case Ingredients.veggy.Lettuce:
+                        fcsIndex = 1;
+                    break;
+                    case Ingredients.veggy.Tomato:
+                        fcsIndex = 2;
+                    break;
+                    case Ingredients.veggy.Onion:
+                        fcsIndex = 3;
+                    break;
+                    case Ingredients.veggy.Mushroom:
+                        fcsIndex = 4;
+                    break;
+                    default:
+                    break;
+                }
+                foodSpriteRenderer.sprite = foodCutSprites[fcsIndex];
+            }
 
             FindObjectOfType<MusicPlayer>().RecieveAndPlaySFX(cutAudio);
             if(cutsMade >= numberOfCuts)

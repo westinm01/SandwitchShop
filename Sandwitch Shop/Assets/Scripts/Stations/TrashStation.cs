@@ -6,6 +6,7 @@ public class TrashStation : Station
 {
     // Start is called before the first frame update
     private Animator thisAnimator;
+    public AudioClip trashSound;
     protected override void Start()
     {
         base.Start();
@@ -22,6 +23,7 @@ public class TrashStation : Station
                 if(Hand.getItem() == null){
 
                 }else{
+                    FindObjectOfType<MusicPlayer>().RecieveAndPlaySFX(trashSound);
                     Hand.dropItem();
                     player.hasFood = false;
                     thisAnimator.SetBool("ThrowAway", true);

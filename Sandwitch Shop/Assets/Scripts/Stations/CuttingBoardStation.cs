@@ -29,6 +29,9 @@ public class CuttingBoardStation : Station
     private SpriteRenderer foodSpriteRenderer;
     public List <Sprite> foodPunchSprites = new List<Sprite>();
     private int fpsIndex;
+
+    public AudioClip cutAudio;
+    //public AudioClip punchAudio;
     //public Player player;
     protected override void Start()
     {
@@ -76,6 +79,7 @@ public class CuttingBoardStation : Station
             //play cut animation
             playerArms.sprite = knifeDown;
 
+            FindObjectOfType<MusicPlayer>().RecieveAndPlaySFX(cutAudio);
             if(cutsMade >= numberOfCuts)
             {
                 playerArms.sprite = null;
@@ -118,7 +122,7 @@ public class CuttingBoardStation : Station
             
             cutsMade++;
             isPunching = true;
-
+            //FindObjectOfType<MusicPlayer>().RecieveAndPlaySFX(punchAudio);
             if(LRChoose)
             {
                 playerArms.sprite = punchLeft;

@@ -15,11 +15,11 @@ public class SelectStation : MonoBehaviour
 
     IEnumerator actuallySelectStation(){
         yield return new WaitUntil(() => selected);
-        if((selectedStation != null) && (Input.GetKeyDown(KeyCode.LeftArrow) && Input.GetKeyDown(KeyCode.RightArrow) && Input.GetKeyDown(KeyCode.DownArrow))){
-            selectedStation.GetComponent<Station>().isSelected = false;
-            selectedStation = null;
-            allTheStations.AddComponent<RotateStations>();
-        }else{
+        // if((selectedStation != null) && (Input.GetKeyDown(KeyCode.LeftArrow) && Input.GetKeyDown(KeyCode.RightArrow) && Input.GetKeyDown(KeyCode.DownArrow))){
+        //     selectedStation.GetComponent<Station>().isSelected = false;
+        //     selectedStation = null;
+        //     allTheStations.AddComponent<RotateStations>();
+        // }else{
             for(int i=0; i<allTheStations.transform.childCount; ++i){
                 Transform station = allTheStations.transform.GetChild(i);
                 if(Mathf.RoundToInt(station.position.x) == Mathf.RoundToInt(dizzy.transform.position.x) && Mathf.RoundToInt(station.position.y) <= Mathf.RoundToInt(dizzy.transform.position.y)){
@@ -31,11 +31,21 @@ public class SelectStation : MonoBehaviour
             if(selectedStation == null){
                 allTheStations.AddComponent<RotateStations>();
             }
-        }
+        //}
         Debug.Log(selectedStation);
         yield return new WaitForSeconds(0.5f);
         selected = false;
         StartCoroutine(actuallySelectStation());
+    }
+
+    IEnumerator unselectStation(){
+        yield return new WaitUntil(() => selectedStation!=null);
+        if((Input.GetKeyDown(KeyCode.LeftArrow) && Input.GetKeyDown(KeyCode.RightArrow))){
+            selectedStation.GetComponent<Station>().isSelected = false;
+            selectedStation = null;
+            allTheStations.AddComponent<RotateStations>();
+        }
+        StartCoroutine(unselectStation());
     }
 
     // Start is called before the first frame update
@@ -44,6 +54,7 @@ public class SelectStation : MonoBehaviour
         dizzy = GameObject.FindWithTag("Player");
         allTheStations = GameObject.FindWithTag("Table");
         StartCoroutine(actuallySelectStation());
+        StartCoroutine(unselectStation());
     }
 
     // Update is called once per frame

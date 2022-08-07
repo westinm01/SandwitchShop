@@ -12,6 +12,7 @@ public class Meat : Food
     {
         isCuttable = false;
         isBakable = true;
+        isPunchable = true;
     }
 
     public Sprite GetSprite(Ingredients.meat meatType)

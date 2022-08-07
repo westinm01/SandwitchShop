@@ -41,7 +41,7 @@ public class SelectStation : MonoBehaviour
 
     IEnumerator unselectStation(){
         yield return new WaitUntil(() => selectedStation!=null);
-        if((Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow))){
+        if((Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow)) && selectedStation.GetComponent<Station>().canQuit){
             selectedStation.GetComponent<Station>().isSelected = false;
             selectedStation = null;
             allTheStations.AddComponent<RotateStations>();

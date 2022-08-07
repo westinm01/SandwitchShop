@@ -21,6 +21,9 @@ public abstract class Station : MonoBehaviour
     protected virtual void Start()
     {
         isSelected = false;
+        leftFunction = () => placeHolder();
+        rightFunction = () => placeHolder();
+        actionFunction = () => placeHolder();
     }
 
 
@@ -30,7 +33,7 @@ public abstract class Station : MonoBehaviour
         
         if(isSelected)
         {
-            if(Input.GetKeyDown(KeyCode.LeftArrow) && Input.GetKeyDown(KeyCode.RightArrow) && Input.GetKeyDown(KeyCode.DownArrow))
+            if(Input.GetKeyDown(KeyCode.LeftArrow) && Input.GetKeyDown(KeyCode.RightArrow))
             {
                 player.GetComponent<Animator>().SetInteger("StationNumber", 0);
                 isSelected = false;
@@ -49,5 +52,9 @@ public abstract class Station : MonoBehaviour
                 actionFunction();
             }
         }
+    }
+
+    protected void placeHolder(){
+
     }
 }

@@ -16,6 +16,7 @@ public class BrewingStation : Station
     private int index = 0;
     private SpriteRenderer thisSpriteRenderer;
     public Sprite defaultSprite;
+    public Sprite defaultSprite2;
     public Sprite brewingSprite;
     public Sprite doneSprite;
     private SpriteRenderer iconSprite;
@@ -26,8 +27,12 @@ public class BrewingStation : Station
     protected override void Start()
     {
         dressings.Add(Ingredients.dressing.Vinegar);//0
+        index = 0;
+        whichAction = -1;
         base.Start();
 
+        sequenceOfBrewing = new List<KeyCode>();
+        playerSequence = new List<KeyCode>();
         List<KeyCode> allTheInputs = new List<KeyCode>();
         allTheInputs.Add(KeyCode.DownArrow);
         allTheInputs.Add(KeyCode.LeftArrow);
@@ -41,6 +46,7 @@ public class BrewingStation : Station
         }
 
         thisSpriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
+        thisSpriteRenderer.sprite = defaultSprite;
         iconSprite = this.gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
         //iconSprite.sprite = iconSprites[0];
 
@@ -55,10 +61,18 @@ public class BrewingStation : Station
         base.Update();
         if(isSelected && beginBrew){
             if(whichAction < 0){
-                thisSpriteRenderer.sprite = defaultSprite;
-            }else if(whichAction < 13){
+                //thisSpriteRenderer.sprite = defaultSprite;
+            }else if(whichAction < 3){
                 if(playerSequence[playerSequence.Count-1] == sequenceOfBrewing[playerSequence.Count-1]){
-                    thisSpriteRenderer.sprite = brewingSprite;
+                    thisSpriteRenderer.sprite = defaultSprite;
+                }else{
+                    playerSequence.RemoveAt(playerSequence.Count-1);
+                    whichAction--;
+                    StartCoroutine(stun());
+                }
+            }else if(whichAction < 7){
+                if(playerSequence[playerSequence.Count-1] == sequenceOfBrewing[playerSequence.Count-1]){
+                    thisSpriteRenderer.sprite = defaultSprite2;
                 }else{
                     playerSequence.RemoveAt(playerSequence.Count-1);
                     whichAction--;
@@ -66,14 +80,17 @@ public class BrewingStation : Station
                 }
             }else if(whichAction < 15){
                 if(playerSequence[playerSequence.Count-1] == sequenceOfBrewing[playerSequence.Count-1]){
-                    
+                    thisSpriteRenderer.sprite = brewingSprite;
                 }else{
                     playerSequence.RemoveAt(playerSequence.Count-1);
                     whichAction--;
                     StartCoroutine(stun());
                 }
             }else{
-                if(playerSequence[playerSequence.Count-1] == sequenceOfBrewing[playerSequence.Count-1]){
+                if(playerSequence.Count > sequenceOfBrewing.Count){
+                    playerSequence.RemoveAt(playerSequence.Count-1);
+                    whichAction--;
+                }else if(playerSequence[playerSequence.Count-1] == sequenceOfBrewing[playerSequence.Count-1]){
                     thisSpriteRenderer.sprite = doneSprite;
                     if (!player.hasFood){
                         GameObject newFood = new GameObject();
@@ -82,9 +99,6 @@ public class BrewingStation : Station
                         Hand.setItem(newFood.GetComponent<Dressing>(), iconSprites[index]);
                         player.hasFood = true;
                     }
-                }else if(playerSequence.Count > sequenceOfBrewing.Count){
-                    playerSequence.RemoveAt(playerSequence.Count-1);
-                    whichAction--;
                 }else{
                     playerSequence.RemoveAt(playerSequence.Count-1);
                     whichAction--;
@@ -92,6 +106,27 @@ public class BrewingStation : Station
                 }
             }
             checkPics();
+        }else if(!isSelected && thisSpriteRenderer.sprite == doneSprite){
+            thisSpriteRenderer.sprite = defaultSprite;
+            sequenceOfBrewing = new List<KeyCode>();
+            playerSequence = new List<KeyCode>();
+            List<KeyCode> allTheInputs = new List<KeyCode>();
+            allTheInputs.Add(KeyCode.DownArrow);
+            allTheInputs.Add(KeyCode.LeftArrow);
+            allTheInputs.Add(KeyCode.RightArrow);
+            for(int i=0; i<16; ++i){
+                int randInput = Mathf.RoundToInt(Random.Range(0, 3));
+                if(randInput == 3){
+                    randInput = 2;
+                }
+                sequenceOfBrewing.Add(allTheInputs[randInput]);
+            }
+            index = 0;
+            whichAction = -1;
+            for(int i=0; i<16; ++i){
+                objects.transform.GetChild(i).gameObject.SetActive(true);
+                objects.transform.GetChild(i).gameObject.GetComponent<SpriteRenderer>().sprite = null;
+            }
         }
     }
 

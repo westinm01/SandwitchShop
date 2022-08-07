@@ -8662,6 +8662,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1030888813}
     - target: {fileID: 3791890424719987372, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
+      propertyPath: brewSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7cf5508cd2000744a9a48519747b702f, type: 3}
+    - target: {fileID: 3791890424719987372, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
       propertyPath: itemSound
       value: 
       objectReference: {fileID: 8300000, guid: ceab412ce925a164f9170a01cdb98f8c, type: 3}

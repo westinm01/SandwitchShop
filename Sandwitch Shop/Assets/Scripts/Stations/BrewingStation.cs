@@ -25,6 +25,7 @@ public class BrewingStation : Station
     [SerializeField] bool beginBrew = false;
 
     public AudioClip itemSound;
+    public AudioClip brewSound;
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -153,6 +154,7 @@ public class BrewingStation : Station
         rightFunction = () => brewRight();
         actionFunction = () => brewDown();
         putPics();
+        FindObjectOfType<MusicPlayer>().RecieveAndPlaySFX(brewSound);
     }
 
     void putPics(){

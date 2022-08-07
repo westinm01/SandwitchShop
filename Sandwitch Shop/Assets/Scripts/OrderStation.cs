@@ -19,7 +19,7 @@ public class OrderStation : Station
     {
         Debug.Log("It works!");
         Food item = Hand.getItem();
-        if (!item)
+        if (!item || !item.isReadyForAssembly)
         {
             return;
         }

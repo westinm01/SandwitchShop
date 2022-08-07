@@ -27,8 +27,12 @@ public class BrewingStation : Station
     protected override void Start()
     {
         dressings.Add(Ingredients.dressing.Vinegar);//0
+        index = 0;
+        whichAction = -1;
         base.Start();
 
+        sequenceOfBrewing = new List<KeyCode>();
+        playerSequence = new List<KeyCode>();
         List<KeyCode> allTheInputs = new List<KeyCode>();
         allTheInputs.Add(KeyCode.DownArrow);
         allTheInputs.Add(KeyCode.LeftArrow);
@@ -42,6 +46,7 @@ public class BrewingStation : Station
         }
 
         thisSpriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
+        thisSpriteRenderer.sprite = defaultSprite;
         iconSprite = this.gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
         //iconSprite.sprite = iconSprites[0];
 

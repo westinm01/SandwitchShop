@@ -41,9 +41,9 @@ public class RotateStations : MonoBehaviour
         if(Input.GetAxis("Horizontal") != 0){
             //currRotation = counter.transform.rotation;
             if(Input.GetAxis("Horizontal") < 0){
-                clockwise = -1;
-            }else{
                 clockwise = 1;
+            }else{
+                clockwise = -1;
             }
         }
     }

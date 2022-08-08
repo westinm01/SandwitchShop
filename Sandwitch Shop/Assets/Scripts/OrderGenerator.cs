@@ -43,10 +43,7 @@ public class OrderGenerator : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            CompleteOrder();
-        }
+        
         if((ordersComplete < ordersInRound) && !orderInProgress)
         {
             GenerateRandomOrder();

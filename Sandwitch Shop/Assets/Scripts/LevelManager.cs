@@ -28,11 +28,13 @@ public class LevelManager : MonoBehaviour
     {
         selectorIcon.SetActive(true);
         WinScreen.SetActive(true);
+        PauseGameSystems();
     }
     public void LoseGame()
     {
         selectorIcon.SetActive(true);
         LoseScreen.SetActive(true);
+        PauseGameSystems();
     }
     public void PauseGame()
     {
@@ -50,11 +52,14 @@ public class LevelManager : MonoBehaviour
     private void PauseGameSystems()
     {
         Time.timeScale = 0f;
+        Destroy(GameObject.FindWithTag("Table").GetComponent<SelectStation>());
+        Destroy(GameObject.FindWithTag("Table").GetComponent<RotateStations>());
         // may also need to pause player input here later
     }
     private void UnpauseGameSystems()
     {
         Time.timeScale = 1f;
+        GameObject.FindWithTag("Table").AddComponent<RotateStations>();
         // may also need to unpause player input here later
     }
 }

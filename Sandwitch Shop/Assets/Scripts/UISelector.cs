@@ -8,7 +8,7 @@ public class UISelector : MonoBehaviour
     [SerializeField] GameObject[] interactableUI;
 
     int currentlySelectedUI = 0;
-    float selectorYPosOffset = 125f;
+    float selectorYPosOffset = 160f;
 
     private void Update()
     {
@@ -16,7 +16,8 @@ public class UISelector : MonoBehaviour
         selectorIcon.transform.position = new Vector3(currentUIPos.x, currentUIPos.y + selectorYPosOffset, currentUIPos.z);
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            interactableUI[currentlySelectedUI].GetComponent<UnityEvent>().InvokeUnityEvent();
+            Debug.Log("Try To Select");
+            SelectAtPosition();
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
@@ -33,5 +34,10 @@ public class UISelector : MonoBehaviour
                 currentlySelectedUI -= 1;
             }
         }
+    }
+
+    public void SelectAtPosition()
+    {
+        interactableUI[currentlySelectedUI].GetComponent<UnityEvent>().InvokeUnityEvent();
     }
 }

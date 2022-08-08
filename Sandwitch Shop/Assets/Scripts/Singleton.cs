@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Singleton : MonoBehaviour
 {
+    int levelsCompleted = 0;
+
     private void Awake()
     {
         int singletonCount = FindObjectsOfType<Singleton>().Length;
@@ -16,5 +18,14 @@ public class Singleton : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
         }
+    }
+
+    public void IncrementLevelsCompleted()
+    {
+        levelsCompleted++;
+    }
+    public int GetLevelsCompleted()
+    {
+        return levelsCompleted;
     }
 }

@@ -17,9 +17,19 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject LoseScreen;
     [SerializeField] GameObject PauseMenu;
 
+    // private vars
+    bool canSelect = false;
+
     private void Start()
     {
         FindObjectOfType<MusicPlayer>().RecieveAndPlayMusic(levelMusic);
+    }
+    private void Update()
+    {
+        if (canSelect)
+        {
+            
+        }
     }
 
     public void ActivateBossImage()

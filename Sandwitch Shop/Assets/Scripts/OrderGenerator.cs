@@ -16,7 +16,6 @@ public class OrderGenerator : MonoBehaviour
     [SerializeField] Ingredients.bread bossBread;
     [SerializeField] Ingredients.meat bossMeat;
     [SerializeField] Ingredients.veggy bossVeggy;
-    [SerializeField] Ingredients.dressing bossDressing;
 
     // Images for Order Menu
     [SerializeField] Image breadImage;
@@ -104,13 +103,13 @@ public class OrderGenerator : MonoBehaviour
             bread = bossBread,
             meat = bossMeat,
             veggy = bossVeggy,
-            dressing = bossDressing
+            dressing = Ingredients.dressing.NoDressing
         };
         // Update UI to show the 4 items
         breadImage.sprite = FindObjectOfType<Bread>().GetSprite(bossBread);
         meatImage.sprite = FindObjectOfType<Meat>().GetSprite(bossMeat);
         veggyImage.sprite = FindObjectOfType<Veggy>().GetSprite(bossVeggy);
-        dressingImage.sprite = FindObjectOfType<Dressing>().GetSprite(bossDressing);
+        dressingImage.sprite = FindObjectOfType<Dressing>().GetSprite(Ingredients.dressing.NoDressing);
 
         currentOrder = bossOrder;
         orderStation.RecieveDesiredOrder(currentOrder);

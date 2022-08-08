@@ -193,7 +193,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 466745325}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.16, z: -0.5}
+  m_LocalPosition: {x: 0, y: 0.24, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -354,6 +354,8 @@ MonoBehaviour:
   isSelected: 0
   canQuit: 1
   player: {fileID: 0}
+  instruction: {fileID: 0}
+  defaultInstruction: {fileID: 0}
   meats: 000000000100000002000000030000000400000005000000
   iconSprites:
   - {fileID: 21300000, guid: fcee3528b73c94f459b0418da8fb6816, type: 3}
@@ -362,7 +364,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3a0833c66ea01dc4a8808a299d849e4e, type: 3}
   - {fileID: 21300000, guid: dd8a88612c96b754cab62e88e36a2f71, type: 3}
   - {fileID: 21300000, guid: 72bc8c94739c67e45aed6f6fcd81dca5, type: 3}
-  itemSound: {fileID: 0}
+  itemSound: {fileID: 8300000, guid: ceab412ce925a164f9170a01cdb98f8c, type: 3}
 --- !u!1 &551760247
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,6 +550,8 @@ MonoBehaviour:
   isSelected: 0
   canQuit: 1
   player: {fileID: 0}
+  instruction: {fileID: 0}
+  defaultInstruction: {fileID: 0}
   defaultSprite: {fileID: 21300000, guid: 42a120c6416ad8c418b74e799d2dd524, type: 3}
   cuttingSprite: {fileID: 21300000, guid: e94997fca5d2e7b41b16944616da832b, type: 3}
   thisSpriteRenderer: {fileID: 0}
@@ -561,7 +565,12 @@ MonoBehaviour:
   punchRight: {fileID: -2096161668, guid: 6e77b1107c7f5454d9dfd5b723b0bca3, type: 3}
   isPunching: 0
   donePunching: 0
-  foodCutSprites: []
+  foodCutSprites:
+  - {fileID: 21300000, guid: 633b055666b1496488ed4400b4149fb6, type: 3}
+  - {fileID: 21300000, guid: 8843ce0eee17ea04ba0c42fdfcb88e4e, type: 3}
+  - {fileID: 21300000, guid: e3530eb8d80dc8246922b469c20c4b3b, type: 3}
+  - {fileID: 21300000, guid: c806ea663c6b097439554fb3cf948d2e, type: 3}
+  - {fileID: 21300000, guid: 4194d6bbe3cee174d9fc54f0fb6669a3, type: 3}
   foodPunchSprites:
   - {fileID: -747078650, guid: 9e6a85e82f99ad644846a548878da236, type: 3}
   - {fileID: -626633301, guid: 9e6a85e82f99ad644846a548878da236, type: 3}
@@ -569,13 +578,13 @@ MonoBehaviour:
   - {fileID: 1638276497, guid: ad288dfa489965c43a636abc4f1e58fb, type: 3}
   - {fileID: 887828237, guid: 545a962c2deaaff489bf4da06f530419, type: 3}
   - {fileID: 994778631, guid: 545a962c2deaaff489bf4da06f530419, type: 3}
-  - {fileID: 887828237, guid: 545a962c2deaaff489bf4da06f530419, type: 3}
-  - {fileID: 994778631, guid: 545a962c2deaaff489bf4da06f530419, type: 3}
-  - {fileID: 887828237, guid: 545a962c2deaaff489bf4da06f530419, type: 3}
-  - {fileID: 994778631, guid: 545a962c2deaaff489bf4da06f530419, type: 3}
-  - {fileID: 887828237, guid: 545a962c2deaaff489bf4da06f530419, type: 3}
-  - {fileID: 994778631, guid: 545a962c2deaaff489bf4da06f530419, type: 3}
-  cutAudio: {fileID: 0}
+  - {fileID: 21300000, guid: 73294ed137616be489ee5b163137dde7, type: 3}
+  - {fileID: 21300000, guid: 2cb4a270fae6f564fa2f6b43540cf7eb, type: 3}
+  - {fileID: 21300000, guid: 4842125acca693c44859b9062781f8e8, type: 3}
+  - {fileID: 21300000, guid: e62f4f94e74f5184f94778ef62b3f1da, type: 3}
+  - {fileID: 21300000, guid: e04056c775685c742a1e13619282d4fe, type: 3}
+  - {fileID: 21300000, guid: 4e6237b705eb2b042bfa343505c2ec6c, type: 3}
+  cutAudio: {fileID: 8300000, guid: e65f5763a84c3af43a9a568f131829dc, type: 3}
 --- !u!1 &1426718328
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,18 +687,20 @@ MonoBehaviour:
   isSelected: 0
   canQuit: 1
   player: {fileID: 0}
+  instruction: {fileID: 0}
+  defaultInstruction: {fileID: 0}
   breads: 
   defaultSprite: {fileID: 21300000, guid: 09a4f717814fa0047b5e610ba08906b0, type: 3}
   toastingSprite: {fileID: 21300000, guid: 919c5e1a23cf9194f9c5739130044701, type: 3}
   doneSprite: {fileID: 21300000, guid: 75fe4176db8c6b04b99fb18d4f71f97f, type: 3}
   iconSprites:
-  - {fileID: 21300000, guid: e65718e500b52ab408e709da63911a2f, type: 3}
-  - {fileID: 21300000, guid: 716f93e4fd596df48ba853d6a7510a54, type: 3}
   - {fileID: 21300000, guid: 4fea4cf9c7846b94488ccb0a0309a017, type: 3}
+  - {fileID: 21300000, guid: 716f93e4fd596df48ba853d6a7510a54, type: 3}
+  - {fileID: 21300000, guid: e65718e500b52ab408e709da63911a2f, type: 3}
   timeToToast: 10
-  breadIn: {fileID: 0}
-  breadOut: {fileID: 0}
-  itemSound: {fileID: 0}
+  breadIn: {fileID: 8300000, guid: 42f3687064ffafb4da7e0d32dc41a705, type: 3}
+  breadOut: {fileID: 8300000, guid: 71b62b26234e7fc448102af64d60cade, type: 3}
+  itemSound: {fileID: 8300000, guid: ceab412ce925a164f9170a01cdb98f8c, type: 3}
 --- !u!1 &1480985472
 GameObject:
   m_ObjectHideFlags: 0
@@ -1128,12 +1139,14 @@ MonoBehaviour:
   isSelected: 0
   canQuit: 1
   player: {fileID: 0}
+  instruction: {fileID: 0}
+  defaultInstruction: {fileID: 0}
   timeToBake: 5
   defaultPan: {fileID: 21300000, guid: bc54e4d931ea5074d82e1a44b398518e, type: 3}
   rawPan: {fileID: 21300000, guid: acdc2d12747c15645a7cfef7d984ef7e, type: 3}
   cookedPan: {fileID: 21300000, guid: efd47678d21459744b87c50fb1d960fe, type: 3}
   spriteHolder: {fileID: 0}
-  sizzleSound: {fileID: 0}
+  sizzleSound: {fileID: 8300000, guid: 68023cb0565684f41976211020c9237c, type: 3}
 --- !u!95 &206472613
 Animator:
   serializedVersion: 4
@@ -1256,6 +1269,8 @@ MonoBehaviour:
   isSelected: 0
   canQuit: 1
   player: {fileID: 0}
+  instruction: {fileID: 0}
+  defaultInstruction: {fileID: 0}
   dressings: 
   sequenceOfBrewing: 
   playerSequence: 
@@ -1264,100 +1279,16 @@ MonoBehaviour:
   arrowDown: {fileID: 21300000, guid: f809dd60e5ab4354e93617186d972edf, type: 3}
   arrowLeft: {fileID: 21300000, guid: e5c5ca3d4906e564ba82efd40c7df1b5, type: 3}
   arrowRight: {fileID: 21300000, guid: e8bd69d1e98c8b44dbce88ef04076a86, type: 3}
-  poofSmoke: {fileID: 0}
-  defaultSprite: {fileID: 21300000, guid: a246191aab593554fa67bd67e5bb74cf, type: 3}
-  defaultSprite2: {fileID: 0}
+  poofSmoke: {fileID: 9100000, guid: 0a990b85eeae874439ece6a0311ff6e0, type: 2}
+  defaultSprite: {fileID: 21300000, guid: bdf55a5de0d85c947bacbd8330a6331e, type: 3}
+  defaultSprite2: {fileID: 21300000, guid: a246191aab593554fa67bd67e5bb74cf, type: 3}
   brewingSprite: {fileID: 21300000, guid: fa2e9f6da4b15a640a8edc24c72283cf, type: 3}
   doneSprite: {fileID: 21300000, guid: 0f67969bf263f58438e451ba98194c31, type: 3}
   iconSprites:
-  - {fileID: 21300000, guid: 538fb9516c88dfb4381d40df544f774d, type: 3}
+  - {fileID: 21300000, guid: ec66079105420d548822b0871c73bff3, type: 3}
   beginBrew: 0
-  itemSound: {fileID: 0}
-  brewSound: {fileID: 0}
---- !u!1 &1214336822786282369
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 9116740989384613445}
-  - component: {fileID: 6097699541413553700}
-  m_Layer: 0
-  m_Name: foodIcon
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &9116740989384613445
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1214336822786282369}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 0, y: -0.7, z: -3}
-  m_LocalScale: {x: 1.1999999, y: 1.1999999, z: 1.1999999}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8733138626940146489}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
---- !u!212 &6097699541413553700
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1214336822786282369}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  itemSound: {fileID: 8300000, guid: ceab412ce925a164f9170a01cdb98f8c, type: 3}
+  brewSound: {fileID: 8300000, guid: 7cf5508cd2000744a9a48519747b702f, type: 3}
 --- !u!1 &3075051621449663114
 GameObject:
   m_ObjectHideFlags: 0
@@ -1398,7 +1329,7 @@ Transform:
   - {fileID: 2419191559841070949}
   - {fileID: 772221423915304035}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3075051621449663115
 SpriteRenderer:
@@ -1583,6 +1514,8 @@ MonoBehaviour:
   isSelected: 0
   canQuit: 1
   player: {fileID: 0}
+  instruction: {fileID: 0}
+  defaultInstruction: {fileID: 0}
   downActive: {fileID: 0}
 --- !u!95 &1739965129
 Animator:
@@ -1706,6 +1639,8 @@ MonoBehaviour:
   isSelected: 0
   canQuit: 1
   player: {fileID: 0}
+  instruction: {fileID: 0}
+  defaultInstruction: {fileID: 0}
   veggies: 
   defaultSprite: {fileID: 21300000, guid: d82de6072a8e40e489ee4de144f05747, type: 3}
   sproutGardenSprites:
@@ -1724,9 +1659,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7246ff32e34f9f74286b182465542f71, type: 3}
   - {fileID: 21300000, guid: 8367d49d6af6389408815c472d18d532, type: 3}
   timeToGrow: 2
-  itemSound: {fileID: 0}
-  playerHappySprite: {fileID: 0}
-  growSound: {fileID: 0}
+  itemSound: {fileID: 8300000, guid: ceab412ce925a164f9170a01cdb98f8c, type: 3}
+  playerHappySprite: {fileID: 21300000, guid: 6e849d474f5c4054b9b5bb6fe92efd95, type: 3}
+  growSound: {fileID: 8300000, guid: a1d0e4d028e4c754ba00274649ffc73e, type: 3}
 --- !u!1 &6710999503724006852
 GameObject:
   m_ObjectHideFlags: 0
@@ -1800,7 +1735,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dad4855c4f2ad3041851f4410034381f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ec66079105420d548822b0871c73bff3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2080,7 +2015,9 @@ MonoBehaviour:
   isSelected: 0
   canQuit: 1
   player: {fileID: 0}
-  trashSound: {fileID: 0}
+  instruction: {fileID: 0}
+  defaultInstruction: {fileID: 0}
+  trashSound: {fileID: 8300000, guid: 0ce959510da44284988be7fffe663e83, type: 3}
 --- !u!95 &958649500
 Animator:
   serializedVersion: 4

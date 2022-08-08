@@ -21,6 +21,15 @@ public class Dressing : Food
             case Ingredients.dressing.Vinegar:
                 dressingSprite = dressingSprites[0];
                 break;
+            case Ingredients.dressing.Ketchup:
+                dressingSprite = dressingSprites[1];
+                break;
+            case Ingredients.dressing.Mustard:
+                dressingSprite = dressingSprites[2];
+                break;
+            case Ingredients.dressing.NoDressing:
+                dressingSprite = null;
+                break;
             default:
                 Debug.Log("Dressing Type Not Recognized");
                 break;

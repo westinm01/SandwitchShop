@@ -500,6 +500,9 @@ MonoBehaviour:
   isReadyForAssembly: 0
   dressing: 0
   dressingSprites:
+  - {fileID: 21300000, guid: ec66079105420d548822b0871c73bff3, type: 3}
+  - {fileID: 21300000, guid: d4cc73c36a0df0f4d8fb60fb10f28327, type: 3}
+  - {fileID: 21300000, guid: f940b09104cd8f94f856536ccff75f7b, type: 3}
   - {fileID: 0}
 --- !u!1 &1372394554854806163
 GameObject:
@@ -1664,7 +1667,7 @@ RectTransform:
   - {fileID: 1372394556112533536}
   - {fileID: 1372394556440631479}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2744,7 +2747,6 @@ MonoBehaviour:
   bossBread: 1
   bossMeat: 1
   bossVeggy: 0
-  bossDressing: 0
   breadImage: {fileID: 1372394554860484702}
   meatImage: {fileID: 1372394555167418081}
   veggyImage: {fileID: 1372394555451621756}

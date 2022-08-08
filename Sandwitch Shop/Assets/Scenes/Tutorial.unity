@@ -6984,13 +6984,13 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'What to Know:
 
-    1. Veggies need to be cut at cutting board.
+    1. GARDEN FOOD needs to be cut at cutting board.
 
     2.
-    Meats need to be punched at cutting board and cooked at stove.
+    PORTAL FOOD needs to be punched at cutting board and cooked at stove.
 
-    3. When a
-    food is ready, submit it on the Delivery Tray.'
+    3.
+    When a food is ready, submit it on the Delivery Tray.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a5bb6f8485886b741b12b069338895c8, type: 2}
   m_sharedMaterial: {fileID: -1487469494280153228, guid: a5bb6f8485886b741b12b069338895c8, type: 2}
@@ -7017,7 +7017,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 51.1
+  m_fontSize: 49
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

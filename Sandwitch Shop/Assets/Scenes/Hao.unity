@@ -6583,6 +6583,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -1487469494280153228, guid: a5bb6f8485886b741b12b069338895c8, type: 2}
+    - target: {fileID: 1372394555985851358, guid: 51890e9a37354e74db3f8229f3e7ba10, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 169
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 51890e9a37354e74db3f8229f3e7ba10, type: 3}

@@ -12,6 +12,11 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadNextScene()
     {
+        if(SceneManager.GetActiveScene().buildIndex + 1 == SceneManager.sceneCountInBuildSettings)
+        {
+            LoadMainMenu();
+            return;
+        }
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.buildIndex + 1);
     }
@@ -19,6 +24,7 @@ public class SceneLoader : MonoBehaviour
     {
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.buildIndex);
+        FindObjectOfType<LevelManager>().UnpauseGame();
     }
 
     public void LoadSceneName(string sceneName)

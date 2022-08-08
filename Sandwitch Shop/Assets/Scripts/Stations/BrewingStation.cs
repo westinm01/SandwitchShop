@@ -136,6 +136,10 @@ public class BrewingStation : Station
                 objects.transform.GetChild(i).gameObject.SetActive(true);
                 objects.transform.GetChild(i).gameObject.GetComponent<SpriteRenderer>().sprite = null;
             }
+            beginBrew = false;
+            leftFunction = () => MoveIndex(-1);
+            rightFunction = () => MoveIndex(1);
+            actionFunction = () => Brew();
         }
     }
 

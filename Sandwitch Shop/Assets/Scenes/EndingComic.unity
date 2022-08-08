@@ -625,9 +625,9 @@ MonoBehaviour:
   - {fileID: 0}
   playAudioOnPics:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: d3ccbd43214cce747be881417803be71, type: 3}
+  - {fileID: 8300000, guid: d3ccbd43214cce747be881417803be71, type: 3}
+  - {fileID: 8300000, guid: 75179ef17ce64d64dac0d8bec0ea56e2, type: 3}
   shakeScreenOnPics: 00000000
   shakeIntensity: 10
   shakeFrequency: 0.5

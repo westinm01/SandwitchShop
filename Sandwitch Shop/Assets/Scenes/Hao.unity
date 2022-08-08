@@ -2708,7 +2708,7 @@ PrefabInstance:
     - target: {fileID: 4064714746567523824, guid: 2778ffea70bd5384287a526d74ce1b82, type: 3}
       propertyPath: timerText
       value: 
-      objectReference: {fileID: 1550572961}
+      objectReference: {fileID: 0}
     - target: {fileID: 4064714746567523837, guid: 2778ffea70bd5384287a526d74ce1b82, type: 3}
       propertyPath: m_Name
       value: Time Manager
@@ -6563,6 +6563,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -1487469494280153228, guid: a5bb6f8485886b741b12b069338895c8, type: 2}
+    - target: {fileID: 1372394555964208961, guid: 51890e9a37354e74db3f8229f3e7ba10, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -332
+      objectReference: {fileID: 0}
     - target: {fileID: 1372394555964208966, guid: 51890e9a37354e74db3f8229f3e7ba10, type: 3}
       propertyPath: timePerOrder
       value: 36
@@ -6579,20 +6583,13 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -1487469494280153228, guid: a5bb6f8485886b741b12b069338895c8, type: 2}
+    - target: {fileID: 1372394555985851358, guid: 51890e9a37354e74db3f8229f3e7ba10, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 169
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 51890e9a37354e74db3f8229f3e7ba10, type: 3}
---- !u!114 &1550572961 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1372394555911487513, guid: 51890e9a37354e74db3f8229f3e7ba10, type: 3}
-  m_PrefabInstance: {fileID: 1550572960}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1550572962 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1372394556440631472, guid: 51890e9a37354e74db3f8229f3e7ba10, type: 3}

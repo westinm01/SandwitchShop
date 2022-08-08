@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/IntroComic.unity
     guid: 8f927701e07aa15419e5900facc5aee3
   - enabled: 1
-    path: Assets/Scenes/Tutorial.unity
+    path: Assets/Scenes/Levels/Tutorial.unity
     guid: 4e1f15dc1bd564a49981960e90ad553c
   - enabled: 1
     path: Assets/Scenes/Levels/level1.unity

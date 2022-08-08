@@ -9425,7 +9425,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4774309567247746605, guid: 1cc2aa35cbd6c1149948e698ced0ae8b, type: 3}
       propertyPath: Loop
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4774309567616737105, guid: 1cc2aa35cbd6c1149948e698ced0ae8b, type: 3}
       propertyPath: m_RootOrder

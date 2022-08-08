@@ -20,10 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/level3.unity
     guid: 80b8b65f07fc5c04cab2949aab4b585e
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
-    path: Assets/Scenes/Wes.unity
-    guid: fe0a90d5210c4c74fa82d4ecb929ce79
+  - enabled: 1
+    path: Assets/Scenes/EndingComic.unity
+    guid: 0f3f5b673ea689f4999fce4479780519
   m_configObjects: {}

@@ -87,4 +87,8 @@ public class OrderStation : Station
     {
         desiredOrder = order;
     }
+    public void TellMyOrderHasNoDressing()
+    {
+        myOrder.dressing = Ingredients.dressing.NoDressing;
+    }
 }

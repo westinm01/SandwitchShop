@@ -9468,9 +9468,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1372394554752734509, guid: 51890e9a37354e74db3f8229f3e7ba10, type: 3}
       propertyPath: m_text
-      value: 'Food Inspector!
-
-        Go FAST!!!'
+      value: 'Today''s Orders: 3'
       objectReference: {fileID: 0}
     - target: {fileID: 1372394554752734509, guid: 51890e9a37354e74db3f8229f3e7ba10, type: 3}
       propertyPath: m_fontAsset
@@ -9486,11 +9484,15 @@ PrefabInstance:
       objectReference: {fileID: -1487469494280153228, guid: a5bb6f8485886b741b12b069338895c8, type: 2}
     - target: {fileID: 1372394554752734511, guid: 51890e9a37354e74db3f8229f3e7ba10, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1372394555371291573, guid: 51890e9a37354e74db3f8229f3e7ba10, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1372394555371291576, guid: 51890e9a37354e74db3f8229f3e7ba10, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1372394555371291577, guid: 51890e9a37354e74db3f8229f3e7ba10, type: 3}
       propertyPath: m_Pivot.x
@@ -9606,7 +9608,7 @@ PrefabInstance:
       objectReference: {fileID: -1487469494280153228, guid: a5bb6f8485886b741b12b069338895c8, type: 2}
     - target: {fileID: 1372394555964208966, guid: 51890e9a37354e74db3f8229f3e7ba10, type: 3}
       propertyPath: timePerOrder
-      value: 60
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 1372394555964208966, guid: 51890e9a37354e74db3f8229f3e7ba10, type: 3}
       propertyPath: bossOrderTime
@@ -9614,7 +9616,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1372394555964208966, guid: 51890e9a37354e74db3f8229f3e7ba10, type: 3}
       propertyPath: ordersInRound
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1372394555985851357, guid: 51890e9a37354e74db3f8229f3e7ba10, type: 3}
       propertyPath: m_fontAsset

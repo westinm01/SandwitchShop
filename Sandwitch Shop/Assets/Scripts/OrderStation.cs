@@ -9,6 +9,7 @@ public class OrderStation : Station
     GeneratedOrder myOrder = new GeneratedOrder();
     private SpriteRenderer iconSprite;
     [SerializeField] Sprite downActive;
+    public AudioClip dingSound;
 
     protected override void Start()
     {
@@ -73,6 +74,7 @@ public class OrderStation : Station
 
     IEnumerator flashSprite(){
         iconSprite.sprite = downActive;
+        FindObjectOfType<MusicPlayer>().RecieveAndPlaySFX(dingSound);
         yield return new WaitForSeconds(1.0f);
         iconSprite.sprite = null;
     }

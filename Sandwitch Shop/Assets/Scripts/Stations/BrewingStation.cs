@@ -130,7 +130,7 @@ public class BrewingStation : Station
                 }
                 sequenceOfBrewing.Add(allTheInputs[randInput]);
             }
-            index = 0;
+            //index = 0;
             whichAction = -1;
             for(int i=0; i<16; ++i){
                 objects.transform.GetChild(i).gameObject.SetActive(true);

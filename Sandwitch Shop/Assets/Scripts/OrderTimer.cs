@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class OrderTimer : MonoBehaviour
 {
@@ -16,8 +17,14 @@ public class OrderTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeLeft -= Time.deltaTime;
-        if(timeLeft <= 0f)
+        Scene currentScene = SceneManager.GetActiveScene();
+
+        if (currentScene.name != "Tutorial")
+        {
+            timeLeft -= Time.deltaTime;
+        }
+
+        if (timeLeft <= 0f)
         {
             // Lose game if timer runs out of time
             timeLeft = 0f;

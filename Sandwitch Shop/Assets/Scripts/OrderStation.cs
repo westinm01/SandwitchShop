@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class OrderStation : Station
 {
+    
+
     // Private Global Variables
     GeneratedOrder desiredOrder;
     GeneratedOrder myOrder = new GeneratedOrder();
     private SpriteRenderer iconSprite;
     [SerializeField] Sprite downActive;
     public AudioClip dingSound;
+    private OrderGenerator orderGenerator;
 
     protected override void Start()
     {
@@ -18,6 +21,7 @@ public class OrderStation : Station
         iconSprite.sprite = null;
         //assign buttons
         actionFunction = () => TryToRecieveItem();
+        orderGenerator = FindObjectOfType<OrderGenerator>();
     }
 
     private void TryToRecieveItem()
@@ -38,6 +42,8 @@ public class OrderStation : Station
                 myOrder.bread = heldBread.bread;
                 Hand.dropItem();
                 StartCoroutine(flashSprite());
+                orderGenerator.CheckBread();
+                
             }
         }
         else if (item.TryGetComponent<Meat>(out Meat heldMeat))
@@ -49,6 +55,7 @@ public class OrderStation : Station
                 myOrder.meat = heldMeat.meat;
                 Hand.dropItem();
                 StartCoroutine(flashSprite());
+                orderGenerator.CheckMeat();
             }
         }
         else if (item.TryGetComponent<Veggy>(out Veggy heldVeggy))
@@ -58,6 +65,7 @@ public class OrderStation : Station
                 myOrder.veggy = heldVeggy.veggy;
                 Hand.dropItem();
                 StartCoroutine(flashSprite());
+                orderGenerator.CheckVeggy();
             }
         }
         else if (item.TryGetComponent<Dressing>(out Dressing heldDressing))
@@ -67,6 +75,7 @@ public class OrderStation : Station
                 myOrder.dressing = heldDressing.dressing;
                 Hand.dropItem();
                 StartCoroutine(flashSprite());
+                orderGenerator.CheckDressing();
             }
         }
         CheckForWin();

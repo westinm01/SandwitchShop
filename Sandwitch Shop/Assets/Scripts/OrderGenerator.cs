@@ -23,6 +23,12 @@ public class OrderGenerator : MonoBehaviour
     [SerializeField] Image veggyImage;
     [SerializeField] Image dressingImage;
 
+    // checkmarks
+    [SerializeField] GameObject checkMark;
+    [SerializeField] GameObject parentForChecks;
+    private Queue<GameObject> checkMarks = new Queue<GameObject>();
+    
+
     // Private Variables
     int ordersComplete = 0;
     bool orderInProgress = false;
@@ -123,6 +129,7 @@ public class OrderGenerator : MonoBehaviour
     {
         orderInProgress = false;
         ordersComplete++;
+        ResetChecks();
         //FindObjectOfType<ScoreKeeper>().AddScore(orderScoreValue);
     }
 
@@ -149,6 +156,39 @@ public class OrderGenerator : MonoBehaviour
         Ingredients.bread randomBread = (Ingredients.bread)values.GetValue(index);*/
         return randomBread;
     }
+    private void ResetChecks()
+    {
+        while(checkMarks.Count > 0)
+        {
+            Destroy(checkMarks.Dequeue());
+        }
+    }
+
+    public void CheckBread()
+    {
+        GameObject check = Instantiate(checkMark, breadImage.transform.position, Quaternion.identity);
+        check.transform.parent = parentForChecks.transform;
+        checkMarks.Enqueue(check);
+    }
+    public void CheckMeat()
+    {
+        GameObject check = Instantiate(checkMark, meatImage.transform.position, Quaternion.identity);
+        check.transform.parent = parentForChecks.transform;
+        checkMarks.Enqueue(check);
+    }
+    public void CheckVeggy()
+    {
+        GameObject check = Instantiate(checkMark, veggyImage.transform.position, Quaternion.identity);
+        check.transform.parent = parentForChecks.transform;
+        checkMarks.Enqueue(check);
+    }
+    public void CheckDressing()
+    {
+        GameObject check = Instantiate(checkMark, dressingImage.transform.position, Quaternion.identity);
+        check.transform.parent = parentForChecks.transform;
+        checkMarks.Enqueue(check);
+    }
+
     private Ingredients.meat GetRandomMeat()
     {
         int randomInt = UnityEngine.Random.Range(0,5);

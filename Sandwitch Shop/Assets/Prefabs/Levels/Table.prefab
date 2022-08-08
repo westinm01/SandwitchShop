@@ -2282,6 +2282,11 @@ MonoBehaviour:
   player: {fileID: 0}
   instruction: {fileID: 0}
   defaultInstruction: {fileID: 0}
+  breadImage: {fileID: 0}
+  meatImage: {fileID: 0}
+  veggyImage: {fileID: 0}
+  dressingImage: {fileID: 0}
+  checkMark: {fileID: 0}
   downActive: {fileID: 21300000, guid: 2653de3590673d04283c46deb3e8386f, type: 3}
   dingSound: {fileID: 8300000, guid: 462dcfad02a81d447983d04a48da1542, type: 3}
 --- !u!95 &1739965129

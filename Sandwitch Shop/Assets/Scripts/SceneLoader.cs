@@ -12,7 +12,11 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadNextScene()
     {
-        FindObjectOfType<LevelManager>().UnpauseGame();
+        if (FindObjectOfType<LevelManager>())
+        {
+            FindObjectOfType<LevelManager>().UnpauseGame();
+        }
+
         if (SceneManager.GetActiveScene().buildIndex + 1 == SceneManager.sceneCountInBuildSettings)
         {
             LoadMainMenu();

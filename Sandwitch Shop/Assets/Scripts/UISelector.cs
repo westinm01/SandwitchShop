@@ -8,7 +8,7 @@ public class UISelector : MonoBehaviour
     [SerializeField] GameObject[] interactableUI;
 
     int currentlySelectedUI = 0;
-    float selectorYPosOffset = 160f;
+    [SerializeField] float selectorYPosOffset = 160f;
 
     private void Update()
     {

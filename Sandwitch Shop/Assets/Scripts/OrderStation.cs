@@ -36,7 +36,7 @@ public class OrderStation : Station
             {
                 myOrder.bread = heldBread.bread;
                 Hand.dropItem();
-                iconSprite.sprite = downActive;
+                StartCoroutine(flashSprite());
             }
         }
         else if (item.TryGetComponent<Meat>(out Meat heldMeat))
@@ -47,7 +47,7 @@ public class OrderStation : Station
                 Debug.Log("It matches and i giv");
                 myOrder.meat = heldMeat.meat;
                 Hand.dropItem();
-                iconSprite.sprite = downActive;
+                StartCoroutine(flashSprite());
             }
         }
         else if (item.TryGetComponent<Veggy>(out Veggy heldVeggy))
@@ -56,7 +56,7 @@ public class OrderStation : Station
             {
                 myOrder.veggy = heldVeggy.veggy;
                 Hand.dropItem();
-                iconSprite.sprite = downActive;
+                StartCoroutine(flashSprite());
             }
         }
         else if (item.TryGetComponent<Dressing>(out Dressing heldDressing))
@@ -65,10 +65,16 @@ public class OrderStation : Station
             {
                 myOrder.dressing = heldDressing.dressing;
                 Hand.dropItem();
-                iconSprite.sprite = downActive;
+                StartCoroutine(flashSprite());
             }
         }
         CheckForWin();
+    }
+
+    IEnumerator flashSprite(){
+        iconSprite.sprite = downActive;
+        yield return new WaitForSeconds(1.0f);
+        iconSprite.sprite = null;
     }
 
     // Checks for order successfully completed

@@ -11117,9 +11117,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1458621417}
     - target: {fileID: 3791890424719987372, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
+      propertyPath: iconSprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3791890424719987372, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
       propertyPath: iconSprites.Array.data[0]
       value: 
       objectReference: {fileID: 21300000, guid: ec66079105420d548822b0871c73bff3, type: 3}
+    - target: {fileID: 3791890424719987372, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
+      propertyPath: iconSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: d4cc73c36a0df0f4d8fb60fb10f28327, type: 3}
+    - target: {fileID: 3791890424719987372, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
+      propertyPath: iconSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: f940b09104cd8f94f856536ccff75f7b, type: 3}
     - target: {fileID: 3793407281024285807, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
       propertyPath: m_Sprite
       value: 

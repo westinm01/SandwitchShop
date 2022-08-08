@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class GameTimer : MonoBehaviour
@@ -10,8 +11,14 @@ public class GameTimer : MonoBehaviour
 
     private void Update()
     {
-        time -= Time.deltaTime;
-        if(time <= 0)
+        Scene currentScene = SceneManager.GetActiveScene();
+
+        if (currentScene.name != "Tutorial")
+        {
+            time -= Time.deltaTime;
+        }
+
+        if (time <= 0)
         {
             time = 0;
             FindObjectOfType<LevelManager>().LoseGame();

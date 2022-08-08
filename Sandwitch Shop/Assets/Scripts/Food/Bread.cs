@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bread : Food
 {
     public Ingredients.bread bread;
-    [SerializeField] Sprite[] breadSprites;
+    [SerializeField] List<Sprite> breadSprites = new List<Sprite>();
 
     // Start is called before the first frame update
     protected override void Start()

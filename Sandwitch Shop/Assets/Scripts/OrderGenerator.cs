@@ -43,6 +43,10 @@ public class OrderGenerator : MonoBehaviour
 
     private void Update()
     {
+        if(Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            CompleteOrder();
+        }
         if((ordersComplete < ordersInRound) && !orderInProgress)
         {
             GenerateRandomOrder();
@@ -79,14 +83,15 @@ public class OrderGenerator : MonoBehaviour
             dressing = randomDressing
         };
 
-        // Update UI to show the 4 random items
-        breadImage.sprite = FindObjectOfType<Bread>().GetSprite(randomBread);
-        meatImage.sprite = FindObjectOfType<Meat>().GetSprite(randomMeat);
-        veggyImage.sprite = FindObjectOfType<Veggy>().GetSprite(randomVeggy);
-        dressingImage.sprite = FindObjectOfType<Dressing>().GetSprite(randomDressing);
-
         currentOrder = order;
         orderStation.RecieveDesiredOrder(currentOrder);
+        // Update UI to show the 4 random items
+        breadImage.sprite = this.gameObject.transform.GetChild(0).GetComponent<Bread>().GetSprite(randomBread);
+        meatImage.sprite = this.gameObject.transform.GetChild(0).GetComponent<Meat>().GetSprite(randomMeat);
+        veggyImage.sprite = this.gameObject.transform.GetChild(0).GetComponent<Veggy>().GetSprite(randomVeggy);
+        dressingImage.sprite = this.gameObject.transform.GetChild(0).GetComponent<Dressing>().GetSprite(randomDressing);
+
+        
     }
 
     private void GenerateBossOrder()
@@ -107,10 +112,11 @@ public class OrderGenerator : MonoBehaviour
             dressing = Ingredients.dressing.NoDressing
         };
         // Update UI to show the 4 items
-        breadImage.sprite = FindObjectOfType<Bread>().GetSprite(bossBread);
-        meatImage.sprite = FindObjectOfType<Meat>().GetSprite(bossMeat);
-        veggyImage.sprite = FindObjectOfType<Veggy>().GetSprite(bossVeggy);
-        dressingImage.sprite = FindObjectOfType<Dressing>().GetSprite(Ingredients.dressing.NoDressing);
+        
+        breadImage.sprite = this.gameObject.transform.GetChild(0).GetComponent<Bread>().GetSprite(bossBread);
+        meatImage.sprite = this.gameObject.transform.GetChild(0).GetComponent<Meat>().GetSprite(bossMeat);
+        veggyImage.sprite = this.gameObject.transform.GetChild(0).GetComponent<Veggy>().GetSprite(bossVeggy);
+        dressingImage.sprite = this.gameObject.transform.GetChild(0).GetComponent<Dressing>().GetSprite(Ingredients.dressing.NoDressing);
 
         currentOrder = bossOrder;
         orderStation.RecieveDesiredOrder(currentOrder);
@@ -120,39 +126,119 @@ public class OrderGenerator : MonoBehaviour
     {
         orderInProgress = false;
         ordersComplete++;
-        FindObjectOfType<ScoreKeeper>().AddScore(orderScoreValue);
+        //FindObjectOfType<ScoreKeeper>().AddScore(orderScoreValue);
     }
 
     private Ingredients.bread GetRandomBread()
     {
-        Type type = typeof(Ingredients.bread);
+        int randomInt = UnityEngine.Random.Range(0,2);
+        Ingredients.bread randomBread = Ingredients.bread.Sourdough;
+        switch(randomInt)
+        {
+            case 0:
+                randomBread = Ingredients.bread.Sourdough;
+                break;
+            case 1:
+                randomBread = Ingredients.bread.White;
+            break;
+            case 2:
+                randomBread = Ingredients.bread.WholeGrain;
+            break;
+            
+        }
+        /*Type type = typeof(Ingredients.bread);
         Array values = type.GetEnumValues();
         int index = random.Next(values.Length);
-        Ingredients.bread randomBread = (Ingredients.bread)values.GetValue(index);
+        Ingredients.bread randomBread = (Ingredients.bread)values.GetValue(index);*/
         return randomBread;
     }
     private Ingredients.meat GetRandomMeat()
     {
+        int randomInt = UnityEngine.Random.Range(0,5);
+        Ingredients.meat randomMeat = Ingredients.meat.Frog;
+        switch(randomInt)
+        {
+            case 0:
+                randomMeat = Ingredients.meat.Frog;
+                break;
+            case 1:
+                randomMeat = Ingredients.meat.Dragon;
+            break;
+            case 2:
+                randomMeat = Ingredients.meat.Jelly;
+            break;
+            case 3:
+                randomMeat = Ingredients.meat.Piranha;
+            break;
+            case 4:
+                randomMeat = Ingredients.meat.Cthulu;
+            break;
+            case 5:
+                randomMeat = Ingredients.meat.RollyPolly;
+            break;
+            
+        }
+        /*
         Type type = typeof(Ingredients.meat);
         Array values = type.GetEnumValues();
         int index = random.Next(values.Length);
-        Ingredients.meat randomMeat = (Ingredients.meat)values.GetValue(index);
+        Ingredients.meat randomMeat = (Ingredients.meat)values.GetValue(index);*/
         return randomMeat;
     }
     private Ingredients.veggy GetRandomVeggy()
     {
+
+        int randomInt = UnityEngine.Random.Range(0,4);
+        Ingredients.veggy randomVeggy = Ingredients.veggy.Potato;
+        switch(randomInt)
+        {
+            case 0:
+                randomVeggy = Ingredients.veggy.Potato;
+                break;
+            case 1:
+                randomVeggy = Ingredients.veggy.Lettuce;
+            break;
+            case 2:
+                randomVeggy = Ingredients.veggy.Tomato;
+            break;
+            case 3:
+                randomVeggy = Ingredients.veggy.Onion;
+            break;
+            case 4:
+                randomVeggy = Ingredients.veggy.Mushroom;
+            break;
+            
+        } 
+        /*
         Type type = typeof(Ingredients.veggy);
         Array values = type.GetEnumValues();
         int index = random.Next(values.Length);
-        Ingredients.veggy randomVeggy = (Ingredients.veggy)values.GetValue(index);
+        Ingredients.veggy randomVeggy = (Ingredients.veggy)values.GetValue(index);*/
         return randomVeggy;
     }
     private Ingredients.dressing GetRandomDressing()
     {
+
+        int randomInt = UnityEngine.Random.Range(0,2);
+        Ingredients.dressing randomDressing = Ingredients.dressing.Vinegar;
+        switch(randomInt)
+        {
+            case 0:
+                randomDressing = Ingredients.dressing.Vinegar;
+                break;
+            case 1:
+                randomDressing = Ingredients.dressing.Ketchup;
+            break;
+            case 2:
+                randomDressing = Ingredients.dressing.Mustard;
+            break;
+            
+        }
+        /*
         Type type = typeof(Ingredients.dressing);
         Array values = type.GetEnumValues();
         int index = random.Next(values.Length);
-        Ingredients.dressing randomDressing = (Ingredients.dressing)values.GetValue(index);
+        Ingredients.dressing randomDressing = (Ingredients.dressing)values.GetValue(index);*/
         return randomDressing;
     }
 }

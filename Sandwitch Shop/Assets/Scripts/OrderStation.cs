@@ -92,7 +92,7 @@ public class OrderStation : Station
                     if (myOrder.dressing == desiredOrder.dressing)
                     {
                         FindObjectOfType<OrderGenerator>().CompleteOrder();
-                        myOrder = new GeneratedOrder();
+                        //myOrder = new GeneratedOrder();
                     }
                 }
             }

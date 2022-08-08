@@ -13,6 +13,7 @@ public class BrewingStation : Station
     [SerializeField] public Sprite arrowLeft;
     [SerializeField] public Sprite arrowRight;
     [SerializeField] public RuntimeAnimatorController poofSmoke;
+    [SerializeField] public GameObject brewText;
 
     private int index = 0;
     private SpriteRenderer thisSpriteRenderer;
@@ -30,6 +31,8 @@ public class BrewingStation : Station
     // Start is called before the first frame update
     protected override void Start()
     {
+        brewText = GameObject.FindWithTag("BrewText");
+        brewText.SetActive(false);
         dressings.Add(Ingredients.dressing.Vinegar);//0
         dressings.Add(Ingredients.dressing.Ketchup);//1
         dressings.Add(Ingredients.dressing.Mustard);//2
@@ -66,6 +69,7 @@ public class BrewingStation : Station
     {
         base.Update();
         if(isSelected && beginBrew){
+            brewText.SetActive(true);
             if(whichAction < 0){
                 //thisSpriteRenderer.sprite = defaultSprite;
                 objects.SetActive(true);
@@ -99,6 +103,7 @@ public class BrewingStation : Station
                     whichAction--;
                 }else if(playerSequence[playerSequence.Count-1] == sequenceOfBrewing[playerSequence.Count-1]){
                     thisSpriteRenderer.sprite = doneSprite;
+                    brewText.SetActive(false);
                     if (Hand.getItem() == null){
                         GameObject newFood = new GameObject();
                         newFood.AddComponent<Dressing>();
@@ -116,6 +121,7 @@ public class BrewingStation : Station
             }
             checkPics();
         }else if(!isSelected && thisSpriteRenderer.sprite == doneSprite){
+            brewText.SetActive(false);
             thisSpriteRenderer.sprite = defaultSprite;
             sequenceOfBrewing = new List<KeyCode>();
             playerSequence = new List<KeyCode>();

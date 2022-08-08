@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+
 public abstract class Station : MonoBehaviour
 {
 
@@ -15,6 +16,10 @@ public abstract class Station : MonoBehaviour
     protected Action leftFunction;
     protected Action rightFunction;
     protected Action actionFunction;
+
+    public GameObject instruction;
+    //protected GameObject instructionCanvas;
+    public GameObject defaultInstruction;
     //These are defined in derived classes.
     
 
@@ -25,6 +30,8 @@ public abstract class Station : MonoBehaviour
         leftFunction = () => placeHolder();
         rightFunction = () => placeHolder();
         actionFunction = () => placeHolder();
+        //instructionCanvas = GameObject.FindWithTag("InstructionCanvas");
+        
     }
 
 
@@ -34,9 +41,12 @@ public abstract class Station : MonoBehaviour
         
         if(isSelected)
         {
-            
+            activateInstruction();
+            Debug.Log("Instruction activated");
             if(Input.GetKeyDown(KeyCode.LeftArrow) && Input.GetKeyDown(KeyCode.RightArrow) && canQuit)
             {
+                deactivateInstruction();
+                Debug.Log("Deactivated");
                 player.GetComponent<Animator>().SetInteger("StationNumber", 0);
                 isSelected = false;
                 player.gameObject.transform.position = new Vector3(0f, -1.6f, 1f);
@@ -66,5 +76,21 @@ public abstract class Station : MonoBehaviour
         isSelected = false;
         player.gameObject.transform.position = new Vector3(0f, -1.6f, 1f);
         //Debug.Log("Station deselected");
+    }
+    
+    public virtual void activateInstruction()
+    {
+        Debug.Log("Activated fr");
+        //instructionCanvas.transform.GetChild(0).gameObject.SetActive(false);
+        instruction.SetActive(true);
+        defaultInstruction.SetActive(false);
+        
+    }
+
+    public virtual void deactivateInstruction()
+    {
+        //instructionCanvas.transform.GetChild(0).gameObject.SetActive(true);
+        instruction.SetActive(false);
+        defaultInstruction.SetActive(true);
     }
 }

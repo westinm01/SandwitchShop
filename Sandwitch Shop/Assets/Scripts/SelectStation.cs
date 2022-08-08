@@ -26,6 +26,7 @@ public class SelectStation : MonoBehaviour
                     selectedStation = station.gameObject;
                     selectedStation.GetComponent<Station>().isSelected = true;
                     dizzy.gameObject.transform.position = new Vector3(0f,-1.6f,1f);
+                    
                 }
             }
             Destroy(allTheStations.GetComponent<RotateStations>());
@@ -43,8 +44,10 @@ public class SelectStation : MonoBehaviour
         yield return new WaitUntil(() => selectedStation!=null);
         if((Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow)) && selectedStation.GetComponent<Station>().canQuit){
             selectedStation.GetComponent<Station>().isSelected = false;
+            selectedStation.GetComponent<Station>().deactivateInstruction();
             selectedStation = null;
             allTheStations.AddComponent<RotateStations>();
+            
         }
         StartCoroutine(unselectStation());
     }

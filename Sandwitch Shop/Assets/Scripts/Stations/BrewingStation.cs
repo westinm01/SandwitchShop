@@ -99,10 +99,11 @@ public class BrewingStation : Station
                     whichAction--;
                 }else if(playerSequence[playerSequence.Count-1] == sequenceOfBrewing[playerSequence.Count-1]){
                     thisSpriteRenderer.sprite = doneSprite;
-                    if (!player.hasFood){
+                    if (Hand.getItem() == null){
                         GameObject newFood = new GameObject();
                         newFood.AddComponent<Dressing>();
                         newFood.GetComponent<Dressing>().dressing = dressings[index];
+                        newFood.GetComponent<Dressing>().isReadyForAssembly = true;
                         Hand.setItem(newFood.GetComponent<Dressing>(), iconSprites[index]);
                         player.hasFood = true;
                         FindObjectOfType<MusicPlayer>().RecieveAndPlaySFX(itemSound);

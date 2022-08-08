@@ -14,7 +14,7 @@ public class MainMenu : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene("Wes");
+        SceneManager.LoadScene("ComicScene");
     }
 
     public void Quit()

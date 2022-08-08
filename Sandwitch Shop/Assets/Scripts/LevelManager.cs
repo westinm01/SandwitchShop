@@ -8,6 +8,9 @@ public class LevelManager : MonoBehaviour
     [SerializeField] AudioClip levelMusic;
     [SerializeField] AudioClip bossMusic;
 
+    // Boss Image
+    [SerializeField] GameObject bossObject;
+
     // Win, Pause, and Lose Elements
     [SerializeField] GameObject selectorIcon;
     [SerializeField] GameObject WinScreen;
@@ -17,6 +20,11 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         FindObjectOfType<MusicPlayer>().RecieveAndPlayMusic(levelMusic);
+    }
+
+    public void ActivateBossImage()
+    {
+        bossObject.SetActive(true);
     }
 
     public void PlayLevelBossMusic()

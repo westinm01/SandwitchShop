@@ -9601,6 +9601,10 @@ PrefabInstance:
       value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1372394555964208966, guid: 51890e9a37354e74db3f8229f3e7ba10, type: 3}
+      propertyPath: bossOrderTime
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1372394555964208966, guid: 51890e9a37354e74db3f8229f3e7ba10, type: 3}
       propertyPath: ordersInRound
       value: 3
       objectReference: {fileID: 0}

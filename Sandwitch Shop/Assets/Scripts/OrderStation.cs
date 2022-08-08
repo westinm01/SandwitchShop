@@ -7,10 +7,14 @@ public class OrderStation : Station
     // Private Global Variables
     GeneratedOrder desiredOrder;
     GeneratedOrder myOrder = new GeneratedOrder();
+    private SpriteRenderer iconSprite;
+    [SerializeField] Sprite downActive;
 
     protected override void Start()
     {
         base.Start();
+        iconSprite = this.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
+        iconSprite.sprite = null;
         //assign buttons
         actionFunction = () => TryToRecieveItem();
     }
@@ -32,6 +36,7 @@ public class OrderStation : Station
             {
                 myOrder.bread = heldBread.bread;
                 Hand.dropItem();
+                StartCoroutine(flashSprite());
             }
         }
         else if (item.TryGetComponent<Meat>(out Meat heldMeat))
@@ -42,6 +47,7 @@ public class OrderStation : Station
                 Debug.Log("It matches and i giv");
                 myOrder.meat = heldMeat.meat;
                 Hand.dropItem();
+                StartCoroutine(flashSprite());
             }
         }
         else if (item.TryGetComponent<Veggy>(out Veggy heldVeggy))
@@ -50,6 +56,7 @@ public class OrderStation : Station
             {
                 myOrder.veggy = heldVeggy.veggy;
                 Hand.dropItem();
+                StartCoroutine(flashSprite());
             }
         }
         else if (item.TryGetComponent<Dressing>(out Dressing heldDressing))
@@ -58,9 +65,16 @@ public class OrderStation : Station
             {
                 myOrder.dressing = heldDressing.dressing;
                 Hand.dropItem();
+                StartCoroutine(flashSprite());
             }
         }
         CheckForWin();
+    }
+
+    IEnumerator flashSprite(){
+        iconSprite.sprite = downActive;
+        yield return new WaitForSeconds(1.0f);
+        iconSprite.sprite = null;
     }
 
     // Checks for order successfully completed

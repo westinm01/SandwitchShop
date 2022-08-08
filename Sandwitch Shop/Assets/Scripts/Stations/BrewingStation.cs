@@ -146,7 +146,7 @@ public class BrewingStation : Station
         leftFunction = () => doNothing();
         rightFunction = () => doNothing();
         actionFunction = () => doNothing();
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.5f);
         objects.transform.GetChild(playerSequence.Count).gameObject.GetComponent<Animator>().SetBool("smokeCloudAnim", false);
         objects.transform.GetChild(playerSequence.Count).gameObject.GetComponent<Animator>().runtimeAnimatorController = null;
         Brew();

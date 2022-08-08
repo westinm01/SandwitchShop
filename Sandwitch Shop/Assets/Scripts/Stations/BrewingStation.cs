@@ -31,6 +31,8 @@ public class BrewingStation : Station
     protected override void Start()
     {
         dressings.Add(Ingredients.dressing.Vinegar);//0
+        dressings.Add(Ingredients.dressing.Ketchup);//1
+        dressings.Add(Ingredients.dressing.Mustard);//2
         index = 0;
         whichAction = -1;
         base.Start();
@@ -97,10 +99,11 @@ public class BrewingStation : Station
                     whichAction--;
                 }else if(playerSequence[playerSequence.Count-1] == sequenceOfBrewing[playerSequence.Count-1]){
                     thisSpriteRenderer.sprite = doneSprite;
-                    if (!player.hasFood){
+                    if (Hand.getItem() == null){
                         GameObject newFood = new GameObject();
                         newFood.AddComponent<Dressing>();
                         newFood.GetComponent<Dressing>().dressing = dressings[index];
+                        newFood.GetComponent<Dressing>().isReadyForAssembly = true;
                         Hand.setItem(newFood.GetComponent<Dressing>(), iconSprites[index]);
                         player.hasFood = true;
                         FindObjectOfType<MusicPlayer>().RecieveAndPlaySFX(itemSound);
@@ -204,6 +207,7 @@ public class BrewingStation : Station
     public void MoveIndex(int direction)
     {
         if(!beginBrew){
+            Debug.Log(index);
             index+=direction;
             if (index < 0){
                 index = dressings.Count - 1;

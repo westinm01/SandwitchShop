@@ -34,7 +34,7 @@ public class CuttingBoardStation : Station
     private int fpsIndex;
     
     public AudioClip cutAudio;
-    //public AudioClip punchAudio;
+    public AudioClip punchAudio;
     //public Player player;
     protected override void Start()
     {
@@ -151,7 +151,7 @@ public class CuttingBoardStation : Station
             
             cutsMade++;
             isPunching = true;
-            //FindObjectOfType<MusicPlayer>().RecieveAndPlaySFX(punchAudio);
+            FindObjectOfType<MusicPlayer>().RecieveAndPlaySFX(punchAudio);
             if(LRChoose)
             {
                 playerArms.sprite = punchLeft;

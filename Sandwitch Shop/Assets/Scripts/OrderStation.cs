@@ -89,7 +89,7 @@ public class OrderStation : Station
             {
                 if (myOrder.veggy == desiredOrder.veggy)
                 {
-                    if (myOrder.dressing == desiredOrder.dressing)
+                    if (myOrder.dressing == desiredOrder.dressing || desiredOrder.dressing == Ingredients.dressing.NoDressing)
                     {
                         FindObjectOfType<OrderGenerator>().CompleteOrder();
                         //myOrder = new GeneratedOrder();

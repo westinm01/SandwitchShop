@@ -10,7 +10,6 @@ public class ShortDelayActivate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(timePassed);
         timePassed += Time.deltaTime;
         if(timePassed >= 0.25f)
         {

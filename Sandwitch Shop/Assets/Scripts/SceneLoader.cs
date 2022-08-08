@@ -12,7 +12,8 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadNextScene()
     {
-        if(SceneManager.GetActiveScene().buildIndex + 1 == SceneManager.sceneCountInBuildSettings)
+        FindObjectOfType<LevelManager>().UnpauseGame();
+        if (SceneManager.GetActiveScene().buildIndex + 1 == SceneManager.sceneCountInBuildSettings)
         {
             LoadMainMenu();
             return;

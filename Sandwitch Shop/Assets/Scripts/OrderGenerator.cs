@@ -93,6 +93,7 @@ public class OrderGenerator : MonoBehaviour
     {
         orderInProgress = true;
         FindObjectOfType<LevelManager>().PlayLevelBossMusic();
+        FindObjectOfType<LevelManager>().ActivateBossImage();
 
         // Update Slider to use boss order time
         orderTimer.UpdateMaxTime(bossOrderTime);

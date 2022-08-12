@@ -26,6 +26,7 @@ public class GardenStation : Station
     private Animator armsAnimator;
 
     public AudioClip growSound;
+    private bool hasGrowSoundBeenPlayed = false;
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -86,6 +87,7 @@ public class GardenStation : Station
                     player.GetComponent<Animator>().enabled = true;
                     canQuit = true;
                     
+                    
                 }
             }
             if(currentStage == 3 && Input.GetKeyUp(KeyCode.DownArrow) && Hand.getItem() == null)
@@ -100,6 +102,7 @@ public class GardenStation : Station
                         player.hasFood = true;
 
                         FindObjectOfType<MusicPlayer>().RecieveAndPlaySFX(itemSound);
+                        hasGrowSoundBeenPlayed = false;
                         
             }
         }
@@ -130,7 +133,12 @@ public class GardenStation : Station
         armsAnimator.enabled = true;
         player.GetComponent<Animator>().enabled = false;
         player.GetComponent<SpriteRenderer>().sprite = playerHappySprite;
-        FindObjectOfType<MusicPlayer>().RecieveAndPlaySFX(growSound);
+        if(!hasGrowSoundBeenPlayed)
+        {
+            FindObjectOfType<MusicPlayer>().RecieveAndPlaySFX(growSound);
+            hasGrowSoundBeenPlayed = true;
+        }
+        
         
     }
 }

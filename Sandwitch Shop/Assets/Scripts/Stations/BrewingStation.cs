@@ -104,6 +104,7 @@ public class BrewingStation : Station
                 }else if(playerSequence[playerSequence.Count-1] == sequenceOfBrewing[playerSequence.Count-1]){
                     thisSpriteRenderer.sprite = doneSprite;
                     brewText.SetActive(false);
+                    canQuit = true;
                     if (Hand.getItem() == null){
                         GameObject newFood = new GameObject();
                         newFood.AddComponent<Dressing>();
@@ -168,6 +169,7 @@ public class BrewingStation : Station
     }
 
     void Brew(){
+        canQuit = false;
         beginBrew = true;
         leftFunction = () => brewLeft();
         rightFunction = () => brewRight();

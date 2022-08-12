@@ -102,6 +102,7 @@ public class OrderStation : Station
                     {
                         FindObjectOfType<OrderGenerator>().CompleteOrder();
                         //myOrder = new GeneratedOrder();
+                       
                     }
                 }
             }

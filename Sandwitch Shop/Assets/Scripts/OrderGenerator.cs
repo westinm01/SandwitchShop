@@ -191,7 +191,7 @@ public class OrderGenerator : MonoBehaviour
 
     private Ingredients.meat GetRandomMeat()
     {
-        int randomInt = UnityEngine.Random.Range(0,5);
+        int randomInt = UnityEngine.Random.Range(0,6); //not maximally inclusive for integers
         Ingredients.meat randomMeat = Ingredients.meat.Frog;
         switch(randomInt)
         {
@@ -213,6 +213,9 @@ public class OrderGenerator : MonoBehaviour
             case 5:
                 randomMeat = Ingredients.meat.RollyPolly;
             break;
+            default:
+                randomMeat = Ingredients.meat.RollyPolly;
+            break;
             
         }
         /*
@@ -225,7 +228,7 @@ public class OrderGenerator : MonoBehaviour
     private Ingredients.veggy GetRandomVeggy()
     {
 
-        int randomInt = UnityEngine.Random.Range(0,4);
+        int randomInt = UnityEngine.Random.Range(0,5);
         Ingredients.veggy randomVeggy = Ingredients.veggy.Potato;
         switch(randomInt)
         {
@@ -244,7 +247,9 @@ public class OrderGenerator : MonoBehaviour
             case 4:
                 randomVeggy = Ingredients.veggy.Mushroom;
             break;
-            
+            default:
+                randomVeggy = Ingredients.veggy.Mushroom;
+            break;
         } 
         /*
         Type type = typeof(Ingredients.veggy);
@@ -256,7 +261,7 @@ public class OrderGenerator : MonoBehaviour
     private Ingredients.dressing GetRandomDressing()
     {
 
-        int randomInt = UnityEngine.Random.Range(0,2);
+        int randomInt = UnityEngine.Random.Range(0,3); //not maximally inclusive for integers
         Ingredients.dressing randomDressing = Ingredients.dressing.Vinegar;
         switch(randomInt)
         {
@@ -267,6 +272,9 @@ public class OrderGenerator : MonoBehaviour
                 randomDressing = Ingredients.dressing.Ketchup;
             break;
             case 2:
+                randomDressing = Ingredients.dressing.Mustard;
+            break;
+            default:
                 randomDressing = Ingredients.dressing.Mustard;
             break;
             

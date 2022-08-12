@@ -28,11 +28,6 @@ public class OrderStation : Station
         myOrder.dressing = Ingredients.dressing.NoDressing;
     }
 
-    protected override void Update()
-    {
-        base.Update();
-        Debug.Log(myOrder.bread + ", " + myOrder.meat + ", " + myOrder.veggy + ", " + myOrder.dressing); 
-    }
     private void TryToRecieveItem()
     {
        
@@ -98,7 +93,6 @@ public class OrderStation : Station
     }
 
     // Checks for order successfully completed
-    // Very ugly U_U but I can't think of anything better
     private void CheckForWin()
     {
         if (myOrder.bread == desiredOrder.bread)
@@ -111,7 +105,7 @@ public class OrderStation : Station
                     {
                         
                         FindObjectOfType<OrderGenerator>().CompleteOrder();
-                        //myOrder = new GeneratedOrder();
+                        
                         myOrder.bread = Ingredients.bread.NoBread;
                         myOrder.meat = Ingredients.meat.NoMeat;
                         myOrder.veggy = Ingredients.veggy.NoVeggy;

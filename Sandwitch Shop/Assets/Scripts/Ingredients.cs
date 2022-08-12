@@ -10,7 +10,8 @@ public class Ingredients : MonoBehaviour
     {
         Sourdough,
         White, 
-        WholeGrain
+        WholeGrain,
+        NoBread
     }
     // Meats
     public enum meat
@@ -20,7 +21,8 @@ public class Ingredients : MonoBehaviour
         Jelly,
         Piranha,
         Cthulu,
-        RollyPolly
+        RollyPolly,
+        NoMeat
     }
     // Veggies
     public enum veggy
@@ -29,7 +31,8 @@ public class Ingredients : MonoBehaviour
         Lettuce,
         Tomato,
         Onion,
-        Mushroom
+        Mushroom,
+        NoVeggy
     }
     // Dressings
     public enum dressing

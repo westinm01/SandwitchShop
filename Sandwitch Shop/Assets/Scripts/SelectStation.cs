@@ -34,7 +34,7 @@ public class SelectStation : MonoBehaviour
                 allTheStations.AddComponent<RotateStations>();
             }
         //}
-        Debug.Log(selectedStation);
+        
         yield return new WaitForSeconds(0.5f);
         selected = false;
         StartCoroutine(actuallySelectStation());

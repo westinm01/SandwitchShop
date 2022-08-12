@@ -56,10 +56,10 @@ public class GardenStation : Station
         base.Update();
         if(isSelected)
         {
-            Debug.Log("gets selected");
+            
             if(Input.GetKey("down") && isGrowing)
             {
-                Debug.Log("it do be growing");
+                
                 currentTime += Time.deltaTime;
                 if(currentStage == 0 && currentTime >= timeToGrow / 3.0f)
                 {

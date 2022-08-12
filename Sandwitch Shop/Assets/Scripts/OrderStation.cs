@@ -22,17 +22,26 @@ public class OrderStation : Station
         //assign buttons
         actionFunction = () => TryToRecieveItem();
         orderGenerator = FindObjectOfType<OrderGenerator>();
+        myOrder.bread = Ingredients.bread.NoBread;
+        myOrder.meat = Ingredients.meat.NoMeat;
+        myOrder.veggy = Ingredients.veggy.NoVeggy;
+        myOrder.dressing = Ingredients.dressing.NoDressing;
     }
 
+    protected override void Update()
+    {
+        base.Update();
+        Debug.Log(myOrder.bread + ", " + myOrder.meat + ", " + myOrder.veggy + ", " + myOrder.dressing); 
+    }
     private void TryToRecieveItem()
     {
-        Debug.Log("It works!");
+       
         Food item = Hand.getItem();
         if (!item || !item.isReadyForAssembly)
         {
             return;
         }
-        Debug.Log("Its ready!");
+        
         // Check what type of ingredient the hand has
         // might have to do more checks later if the item has been properly prepared and cooked
         if (item.TryGetComponent<Bread>(out Bread heldBread))
@@ -48,10 +57,10 @@ public class OrderStation : Station
         }
         else if (item.TryGetComponent<Meat>(out Meat heldMeat))
         {
-            Debug.Log("its meat!");
+            
             if(heldMeat.meat == desiredOrder.meat)
             {
-                Debug.Log("It matches and i giv");
+                
                 myOrder.meat = heldMeat.meat;
                 Hand.dropItem();
                 StartCoroutine(flashSprite());
@@ -100,8 +109,13 @@ public class OrderStation : Station
                 {
                     if (myOrder.dressing == desiredOrder.dressing || desiredOrder.dressing == Ingredients.dressing.NoDressing)
                     {
+                        
                         FindObjectOfType<OrderGenerator>().CompleteOrder();
                         //myOrder = new GeneratedOrder();
+                        myOrder.bread = Ingredients.bread.NoBread;
+                        myOrder.meat = Ingredients.meat.NoMeat;
+                        myOrder.veggy = Ingredients.veggy.NoVeggy;
+                        myOrder.dressing = Ingredients.dressing.NoDressing;
                        
                     }
                 }

@@ -8,6 +8,8 @@ public class RotateStations : MonoBehaviour
     //float currRotation;
     int clockwise = 0;
 
+    public NameDisplay nameDisplay;
+
     IEnumerator coolRotate(){
         yield return new WaitUntil(() => clockwise!=0);
         Destroy(counter.GetComponent<SelectStation>());
@@ -17,6 +19,7 @@ public class RotateStations : MonoBehaviour
                 yield return new WaitForSeconds(0.01f);
             }
             counter.transform.Rotate(new Vector3(0,0,-4));
+            
         }else{
             for(int i=0; i<7; ++i){
                 counter.transform.Rotate(new Vector3(0,0,-7));
@@ -25,6 +28,7 @@ public class RotateStations : MonoBehaviour
             counter.transform.Rotate(new Vector3(0,0,4));
         }
         counter.AddComponent<SelectStation>();
+        nameDisplay.index -= clockwise; //need to subtract
         yield return new WaitForSeconds(0.3f);
         clockwise = 0;
         StartCoroutine(coolRotate());
@@ -33,6 +37,8 @@ public class RotateStations : MonoBehaviour
     void Start(){
         counter = GameObject.FindWithTag("Table");
         StartCoroutine(coolRotate());
+
+        nameDisplay = FindObjectOfType<NameDisplay>();
     }
 
     // Update is called once per frame

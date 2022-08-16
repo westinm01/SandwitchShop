@@ -308,7 +308,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.7783133, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -618,7 +618,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7da4792630c2cdf47b6917545c86384f, type: 3}
   - {fileID: 21300000, guid: 15bcf2af2f66b6840b9695d1b56d97e4, type: 3}
   - {fileID: 21300000, guid: b824132d7ab59d043b4d98e0b3db257c, type: 3}
+  - {fileID: 21300000, guid: b824132d7ab59d043b4d98e0b3db257c, type: 3}
   comicText:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -628,7 +630,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d3ccbd43214cce747be881417803be71, type: 3}
   - {fileID: 8300000, guid: d3ccbd43214cce747be881417803be71, type: 3}
   - {fileID: 8300000, guid: 75179ef17ce64d64dac0d8bec0ea56e2, type: 3}
-  shakeScreenOnPics: 00000000
+  - {fileID: 8300000, guid: 75179ef17ce64d64dac0d8bec0ea56e2, type: 3}
+  shakeScreenOnPics: 0000000000
   shakeIntensity: 10
   shakeFrequency: 0.5
   shakeDuration: 0.5

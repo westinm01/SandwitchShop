@@ -3150,7 +3150,7 @@ MonoBehaviour:
   - {fileID: 1768618634}
   - {fileID: 707212081}
   - {fileID: 113706519}
-  selectorYPosOffset: 100
+  selectorYPosOffset: 40
 --- !u!1 &1632807256
 GameObject:
   m_ObjectHideFlags: 0

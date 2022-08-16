@@ -31,7 +31,7 @@ public class BrewingStation : Station
     // Start is called before the first frame update
     protected override void Start()
     {
-        brewText = GameObject.FindWithTag("BrewText");
+        //brewText = GameObject.FindWithTag("BrewText");
         brewText.SetActive(false);
         dressings.Add(Ingredients.dressing.Vinegar);//0
         dressings.Add(Ingredients.dressing.Ketchup);//1

@@ -10020,6 +10020,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1372394554714169132, guid: 51890e9a37354e74db3f8229f3e7ba10, type: 3}
+      propertyPath: selectorYPosOffset
+      value: 70
+      objectReference: {fileID: 0}
     - target: {fileID: 1372394554714169134, guid: 51890e9a37354e74db3f8229f3e7ba10, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -10156,6 +10160,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -1487469494280153228, guid: a5bb6f8485886b741b12b069338895c8, type: 2}
+    - target: {fileID: 1372394555819114912, guid: 51890e9a37354e74db3f8229f3e7ba10, type: 3}
+      propertyPath: selectorYPosOffset
+      value: 70
+      objectReference: {fileID: 0}
     - target: {fileID: 1372394555911487513, guid: 51890e9a37354e74db3f8229f3e7ba10, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -10267,6 +10275,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 51890e9a37354e74db3f8229f3e7ba10, type: 3}
+--- !u!1 &1884118349 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7160526057316285411, guid: 51890e9a37354e74db3f8229f3e7ba10, type: 3}
+  m_PrefabInstance: {fileID: 1884118348}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1979766634
 GameObject:
   m_ObjectHideFlags: 0
@@ -11661,6 +11674,10 @@ PrefabInstance:
       propertyPath: objects
       value: 
       objectReference: {fileID: 1030888813}
+    - target: {fileID: 3791890424719987372, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
+      propertyPath: brewText
+      value: 
+      objectReference: {fileID: 1884118349}
     - target: {fileID: 3791890424719987372, guid: b74a24cb32cdf4a4c8460bcf420b49c7, type: 3}
       propertyPath: instruction
       value: 
